@@ -33,6 +33,6 @@ no certification stamp, no grid background, no presentation cards.
 
 ## 教學圖怎麼讀
 
-YouTube 圖的第一組把預告改成團隊的動作，也指出收購價需要另談，第二組用旁註說明相連句意可以接起來，完整例子見 [正反例文件](../hans-human-writing/references/editing-examples.md)。
+YouTube 圖的第一組把預告改成團隊的動作，也指出收購價需要另談，第二組保留原本口語與例子，只整理分段，完整例子見 [正反例文件](../hans-human-writing/references/editing-examples.md)。
 
 安裝圖只畫實際檔案，不模擬產品介面，三種工具的目錄、安裝指令與確認步驟見 [圖文教學](guide.md)。
