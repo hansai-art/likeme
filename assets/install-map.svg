@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="790" viewBox="0 0 1400 790"><rect width="1400" height="790" fill="#faf8f2"/>
+<text x="76" y="73.96" font-size="22" fill="#a13d2b" font-family="Noto Sans CJK TC,Noto Sans TC,sans-serif">像我本人 / 安裝</text>
+<text x="76" y="145.92" font-size="44" fill="#26241f" font-family="Noto Sans CJK TC,Noto Sans TC,sans-serif">複製完整資料夾，讓範例也能被讀到</text>
+<text x="76" y="219.48" font-size="36" fill="#26241f" font-family="Noto Sans CJK TC,Noto Sans TC,sans-serif">hans-human-writing/</text>
+<path d="M76 237 L1324 237" stroke="#dad4c9" stroke-width="2" fill="none"/>
+<text x="76" y="302.68" font-size="26" fill="#26241f" font-family="Noto Sans CJK TC,Noto Sans TC,sans-serif">SKILL.md</text>
+<text x="746" y="300.32" font-size="24" fill="#7b756b" font-family="Noto Sans CJK TC,Noto Sans TC,sans-serif">核心指令，必須放在資料夾最上層。</text>
+<text x="76" y="369.68" font-size="26" fill="#26241f" font-family="Noto Sans CJK TC,Noto Sans TC,sans-serif">references/editing-examples.md</text>
+<text x="746" y="367.32" font-size="24" fill="#7b756b" font-family="Noto Sans CJK TC,Noto Sans TC,sans-serif">12 組正反例，其中 8 組來自 YouTube 文章。</text>
+<text x="76" y="436.68" font-size="26" fill="#26241f" font-family="Noto Sans CJK TC,Noto Sans TC,sans-serif">references/protection-and-scenes.md</text>
+<text x="746" y="434.32" font-size="24" fill="#7b756b" font-family="Noto Sans CJK TC,Noto Sans TC,sans-serif">保護數字、條件與作者原意，依用途調整。</text>
+<text x="76" y="503.68" font-size="26" fill="#26241f" font-family="Noto Sans CJK TC,Noto Sans TC,sans-serif">references/youtube-case.md</text>
+<text x="746" y="501.32" font-size="24" fill="#7b756b" font-family="Noto Sans CJK TC,Noto Sans TC,sans-serif">長文診斷、局部改寫與資料缺口。</text>
+<text x="76" y="570.68" font-size="26" fill="#26241f" font-family="Noto Sans CJK TC,Noto Sans TC,sans-serif">agents/openai.yaml</text>
+<text x="746" y="568.32" font-size="24" fill="#7b756b" font-family="Noto Sans CJK TC,Noto Sans TC,sans-serif">支援工具顯示名稱與預設提示。</text>
+<text x="76" y="637.68" font-size="26" fill="#26241f" font-family="Noto Sans CJK TC,Noto Sans TC,sans-serif">assets/icon.svg</text>
+<text x="746" y="635.32" font-size="24" fill="#7b756b" font-family="Noto Sans CJK TC,Noto Sans TC,sans-serif">支援工具顯示的圖示。</text>
+<path d="M76 698 L1324 698" stroke="#dad4c9" stroke-width="2" fill="none"/>
+<text x="76" y="747.32" font-size="24" fill="#a13d2b" font-family="Noto Sans CJK TC,Noto Sans TC,sans-serif">放入工具的 skills 目錄，完整路徑與三種工具的差異見圖文教學。</text></svg>
