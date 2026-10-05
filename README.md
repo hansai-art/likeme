@@ -22,7 +22,7 @@ Traditional Chinese writing and editing skill for Claude Code, Codex and Cursor.
 
 同一個道理換了四種說法，每段都像新發現；一個產品轉向的故事，跳過中間的成長過程，直接接到十幾億美元的收購；作者沒有提供經歷，AI 卻加上「我當下愣住了」，這些問題換幾個詞也救不了。
 
-我拿一篇 YouTube 起源文章當編輯案例，它的具體細節很好：徵求約會影片、開放其他用途、動物園裡的大象，但後面反覆談承認猜錯、觀察使用者、信念與謙遜，說的其實很接近，讀者一直往下滑，得到的新理解卻很少。
+我拿一篇產品起源文章示範編輯判斷：第一個例子把模糊的「做了一個決定」改成具體行動，第二個例子則保留原本自然的口語。
 
 所以這個技能會先整理主張與資料，再決定哪些句子要留，沒有作用就直接刪，必要資訊才改寫，人物、數字、條件、推理與有作用的故事細節都要保住。
 
@@ -56,7 +56,7 @@ Traditional Chinese writing and editing skill for Claude Code, Codex and Cursor.
 
 ### 口語與例子保留，只整理標點與分段
 
-**改寫前**
+**原文**
 
 > 想傳狗，就傳狗。
 >
@@ -66,11 +66,9 @@ Traditional Chinese writing and editing skill for Claude Code, Codex and Cursor.
 >
 > 總之，只要是影片都行。
 
-**整理後（保留原字句）**
+**處理方式：保留原文。**
 
-> 想傳狗，就傳狗，想傳旅遊，就傳旅遊，今天吃了什麼奇怪的東西，也可以拍，總之，只要是影片都行。
-
-這句口語自然、例子具體，照需求整理標點與分段就好，不必換詞或概括內容。
+這幾句口語自然、例子具體，不需要改寫。若只要求整理標點或分段，也只動必要的地方，不把「狗」換成「寵物」，不把奇怪食物概括成「日常生活」。
 
 ### 1. 刪掉補句，已知作用直接說
 
@@ -180,7 +178,7 @@ npx skills add hansai-art/likeme --skill hans-human-writing
 | [MrGeDiao/shuorenhua](https://github.com/MrGeDiao/shuorenhua) | 保護片段、依情境決定改動範圍，分開測待改文字與應保留文字 | 保住數字、條件、承諾與 URL，依任務決定改多少，也試跑原本自然、不該改的句子 |
 | [blader/humanizer](https://github.com/blader/humanizer) | 作者聲音、段落作用與刪掉編輯旁白 | 依本人樣本校準用字和節奏，直接寫事情，不加「我會看」等旁白 |
 | [hardikpandya/stop-slop](https://github.com/hardikpandya/stop-slop) | 重複節奏、戲劇碎句、空泛評語與多餘修飾 | 刪無效句子，只修分段時保留原本口語，不把每篇文章壓成同一種摘要 |
-| [Raymond Hou/speak-human-tw](https://github.com/Raymondhou0917/speak-human-tw) | 繁中場景、資訊保護、評測與圖文教學的呈現 | 參考公開說明的方法，用我們的 YouTube 案例、課程素材與原創配圖重新設計 |
+| [Raymond Hou/speak-human-tw](https://github.com/Raymondhou0917/speak-human-tw) | 繁中場景、資訊保護、評測與圖文教學的呈現 | 參考公開說明的方法，用我們的產品案例、課程素材與原創配圖重新設計 |
 
 閱讀範圍與來源版本見 [設計筆記](docs/design-notes.md)，朱宥勳影片這次依中文維基的引用與使用者摘要整理，尚未取得完整逐字稿，SEO 研究院文章讀取的是搜尋索引正文，未採用文中的成效統計或偵測分數。
 
