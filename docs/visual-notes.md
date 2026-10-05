@@ -7,7 +7,7 @@
 | 檔案 | 用途 | 製作方式 |
 | --- | --- | --- |
 | [`assets/likeme-cover.jpg`](../assets/likeme-cover.jpg) | README 封面，糾結墨線經紅筆整理成稿 | 內建圖片生成，輸出後只轉成 JPEG，構圖未修改 |
-| [`assets/editing-example.svg`](../assets/editing-example.svg) | 模糊事件描述的改寫，以及自然口語的原文保留 | 依確定文字排版的 SVG 向量圖 |
+| [`assets/editing-example.svg`](../assets/editing-example.svg) | Skill 過度改寫的原因，以及自然口語如何保留 | 依確定文字排版的 SVG 向量圖 |
 | [`assets/install-map.svg`](../assets/install-map.svg) | 安裝時需要完整複製的資料夾 | 依專案實際檔案製作 SVG 向量圖 |
 
 ## 封面創作指示
@@ -33,6 +33,6 @@ no certification stamp, no grid background, no presentation cards.
 
 ## 教學圖怎麼讀
 
-編輯示範圖的第一組把「做了一個決定」改成團隊實際採取的行動，並避免把後來的收購金額算到這個決定上；第二組保留原本口語與例子，清楚標示原文不必改寫。完整例子見 [正反例文件](../hans-human-writing/references/editing-examples.md)。
+新版圖用原句與分類式摘要對照，指出 Skill 把口語當成問題，導致具體例子和作者節奏消失；下方給出「原文自然就保留，有問題才局部修改」的判斷流程，也說明標題要寫編輯重點，不要只列案例來源。完整例子見 [正反例文件](../hans-human-writing/references/editing-examples.md)。
 
 安裝圖只畫實際檔案，不模擬產品介面，三種工具的目錄、安裝指令與確認步驟見 [圖文教學](guide.md)。
