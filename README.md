@@ -38,9 +38,9 @@ Traditional Chinese writing and editing skill for Claude Code, Codex and Cursor.
 
 ## 改寫與保留示範
 
-下面兩個例子分別示範：把模糊的事件描述改具體，以及保留原本自然的口語。
+我不滿意的核心，是技能把「去 AI 味」誤解成「每句都要重寫」。下面用同一段原文對照：口語被換成分類詞，具體畫面和作者節奏就不見了。
 
-![編輯示範：把模糊的事件描述改清楚，保留自然口語](assets/editing-example.svg)
+![編輯示範：自然口語不必重寫，先判斷原文是否真的有問題](assets/editing-example.svg)
 
 ### 把「後來價值 16.5 億美元的決定」說清楚
 
