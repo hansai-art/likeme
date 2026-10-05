@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1100" viewBox="0 0 1400 1100">
+  <rect width="1400" height="1100" fill="#faf8f2"/>
+  <g font-family="Noto Sans CJK TC, Noto Sans TC, sans-serif">
+    <text x="76" y="74" font-size="22" fill="#a13d2b">像我本人 / 編輯示範</text>
+    <text x="76" y="150" font-size="48" fill="#26241f">句子有問題才改，口語自然就保留</text>
+    <text x="76" y="198" font-size="24" fill="#7b756b">兩種編輯判斷：把模糊的動作說清楚，保留自然的原句</text>
+    <path d="M76 230H1324" stroke="#dad4c9" stroke-width="2"/>
+    <text x="76" y="296" font-size="27" fill="#a13d2b">01</text>
+    <text x="140" y="296" font-size="27" fill="#7b756b">把模糊的「決定」說清楚</text>
+    <text x="140" y="352" font-size="32" fill="#26241f">這時候他們做了一個後來價值 16.5 億美元的決定。</text>
+    <text x="140" y="399" font-size="24" fill="#a13d2b">原句沒有交代決定內容，還把後來的收購金額接在一起，讀者容易混淆兩件事。</text>
+    <text x="140" y="468" font-size="34" fill="#26241f">團隊取消了約會影片的限制，開放其他內容上傳。</text>
+    <path d="M76 510H1324" stroke="#dad4c9" stroke-width="2"/>
+    <text x="76" y="576" font-size="27" fill="#a13d2b">02</text>
+    <text x="140" y="576" font-size="27" fill="#7b756b">這段口語自然，原文保留</text>
+    <text x="140" y="632" font-size="30" fill="#26241f">想傳狗，就傳狗。</text>
+    <text x="140" y="680" font-size="30" fill="#26241f">想傳旅遊，就傳旅遊。</text>
+    <text x="140" y="728" font-size="30" fill="#26241f">今天吃了什麼奇怪的東西，也可以拍。</text>
+    <text x="140" y="776" font-size="30" fill="#26241f">總之，只要是影片都行。</text>
+    <path d="M850 604H875V780H850" fill="none" stroke="#a13d2b" stroke-width="2"/>
+    <text x="920" y="656" font-size="26" fill="#a13d2b">四個例子都保留。</text>
+    <text x="920" y="700" font-size="26" fill="#a13d2b">原句已經自然，</text>
+    <text x="920" y="744" font-size="26" fill="#a13d2b">不必換詞或改寫。</text>
+    <path d="M76 860H1324" stroke="#dad4c9" stroke-width="2"/>
+    <text x="76" y="922" font-size="28" fill="#26241f">只改真正有問題的地方；作者原本有畫面的說法，留下來。</text>
+    <text x="76" y="1000" font-size="22" fill="#7b756b">例句取自一段產品起源文章，畫面只示範編輯判斷，不需要先知道作品背景。</text>
+  </g>
+</svg>
