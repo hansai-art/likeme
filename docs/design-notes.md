@@ -67,7 +67,7 @@ LikeMe 不是通用的「人味改寫器」，也不是 AI 禁詞表。它要處
 - https://github.com/MrGeDiao/shuorenhua
 - https://github.com/blader/humanizer
 - https://github.com/hardikpandya/stop-slop
-- https://zh.wikipedia.org/zh-tw/Wikipedia:AI%E7%94%9F%E6%88%90%E6%96%87%E7%9A%84%E特徵
+- https://zh.wikipedia.org/zh-tw/Wikipedia:AI%E7%94%9F%E6%88%90%E6%96%87%E7%9A%84%E7%89%B9%E5%BE%B5
 - https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing
 - https://www.youtube.com/watch?v=9uuX6cb81C8
 - https://blog.dns.com.tw/2026/05/ai-writing.html
