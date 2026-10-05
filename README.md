@@ -184,4 +184,4 @@ npx skills add hansai-art/likeme --skill hans-human-writing
 
 像我本人使用 [MIT License](LICENSE)，歡迎拿去用、調整成自己的寫作習慣，或提出具體改稿案例，來源與設計差異整理在 [設計筆記](docs/design-notes.md)。
 
-作者：林思翰（Hans） · 技能版本：2.3.0 · 2026-10-02
+作者：林思翰（Hans） · 技能版本：2.3.1 · 2026-10-05
