@@ -4,7 +4,6 @@
 
 ## 1. 確認要放哪裡
 
-![技能資料夾：完整複製核心規則與參考文件](../assets/install-map.svg)
 
 技能的核心是 `SKILL.md`，範例與場景規則放在 `references/`，安裝時複製完整的 `hans-human-writing` 資料夾，讓相對連結能找到檔案，README、教學圖與測試資料不用一起裝進技能目錄。
 
