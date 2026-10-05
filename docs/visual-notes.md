@@ -7,7 +7,7 @@
 | 檔案 | 用途 | 製作方式 |
 | --- | --- | --- |
 | [`assets/likeme-cover.jpg`](../assets/likeme-cover.jpg) | README 封面，糾結墨線經紅筆整理成稿 | 內建圖片生成，輸出後只轉成 JPEG，構圖未修改 |
-| [`assets/youtube-edit.png`](../assets/youtube-edit.png) | YouTube 原句、編輯批註與改句 | 依確定文字排版，另附 [SVG](../assets/youtube-edit.svg) |
+| [`assets/editing-example.svg`](../assets/editing-example.svg) | 模糊事件描述的改寫，以及自然口語的原文保留 | 依確定文字排版的 SVG 向量圖 |
 | [`assets/install-map.svg`](../assets/install-map.svg) | 安裝時需要完整複製的資料夾 | 依專案實際檔案製作 SVG 向量圖 |
 
 ## 封面創作指示
@@ -33,6 +33,6 @@ no certification stamp, no grid background, no presentation cards.
 
 ## 教學圖怎麼讀
 
-YouTube 圖的第一組把預告改成團隊的動作，也指出收購價需要另談，第二組保留原本口語與例子，只整理分段，完整例子見 [正反例文件](../hans-human-writing/references/editing-examples.md)。
+編輯示範圖的第一組把「做了一個決定」改成團隊實際採取的行動，並避免把後來的收購金額算到這個決定上；第二組保留原本口語與例子，清楚標示原文不必改寫。完整例子見 [正反例文件](../hans-human-writing/references/editing-examples.md)。
 
 安裝圖只畫實際檔案，不模擬產品介面，三種工具的目錄、安裝指令與確認步驟見 [圖文教學](guide.md)。
