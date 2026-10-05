@@ -7,7 +7,7 @@
     <path d="M76 244H1364" stroke="#d9d2c5" stroke-width="2"/>
 
     <rect x="76" y="284" width="612" height="492" rx="22" fill="#fffefa" stroke="#d9e4da" stroke-width="2"/>
-    <rect x="104" y="311" width="250" height="42" rx="21" fill="#e5f0e6"/>
+    <rect x="104" y="311" width="330" height="42" rx="21" fill="#e5f0e6"/>
     <text x="126" y="340" font-size="22" font-weight="700" fill="#28714d">原文｜清楚、自然、有畫面</text>
     <text x="112" y="415" font-size="31" fill="#222824">想傳狗，就傳狗。</text>
     <text x="112" y="467" font-size="31" fill="#222824">想傳旅遊，就傳旅遊。</text>
@@ -24,9 +24,9 @@
     <text x="790" y="502" font-size="29" fill="#222824">用來找約會對象。</text>
     <path d="M790 535H1326" stroke="#ecdcd5" stroke-width="2"/>
     <text x="790" y="582" font-size="23" font-weight="700" fill="#a13d2b">狗 → 寵物</text>
-    <text x="790" y="615" font-size="20" fill="#686d66">具體用字變成大分類</text>
-    <text x="1070" y="582" font-size="22" font-weight="700" fill="#a13d2b">奇怪食物 → 日常生活</text>
-    <text x="1070" y="615" font-size="20" fill="#686d66">有畫面的例子被抽掉</text>
+    <text x="925" y="582" font-size="20" fill="#686d66">具體用字變成大分類</text>
+    <text x="790" y="630" font-size="22" font-weight="700" fill="#a13d2b">奇怪食物 → 日常生活</text>
+    <text x="1082" y="630" font-size="20" fill="#686d66">有畫面的例子被抽掉</text>
     <text x="790" y="700" font-size="22" fill="#a13d2b">句子變短了，作者的說法也不見了。</text>
 
     <path d="M697 519H742" stroke="#bd533d" stroke-width="4"/>
