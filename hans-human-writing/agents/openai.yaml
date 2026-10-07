@@ -1,13 +1,13 @@
 interface:
-  display_name: 像我本人
-  short_description: 先判斷哪些文字該保留、修復或刪除，再寫出具體的台灣繁中文章，保留事實、作者立場與自然節奏
-  default_prompt: 請用 $hans-human-writing 寫作或改寫，先判斷真正需要修改的地方，保留事實、我的判斷與必要條件，直接交付完整成稿。
-  icon_small: assets/icon.svg
-  icon_large: assets/icon.svg
+  display_name: "像我本人"
+  short_description: "依作者樣本保留口語與判斷，修掉重複鋪陳與空泛補句，保住資料、條件和故事節奏"
+  default_prompt: "用 $hans-human-writing 改寫這份原稿，保留我的語氣、事實、判斷與具體例子，只改有問題的地方，直接給完整成稿。"
+  icon_small: "./assets/icon.svg"
+  icon_large: "./assets/icon.svg"
 policy:
   products:
-  - chatgpt
-  - codex
-  - api
-  - atlas
+    - "chatgpt"
+    - "codex"
+    - "api"
+    - "atlas"
   allow_implicit_invocation: true
