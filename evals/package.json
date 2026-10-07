@@ -1,0 +1,19 @@
+{
+  "skill_revision": "3.0.0",
+  "files_sha256": {
+    "SKILL.md": "66e60974c7ad9348143ba3efe60366fee4cc4a9a085f68d3a09dc708db8e71df",
+    "assets/icon.svg": "49315dda7125ec5fc77ef5f2b96126d8b2121c6e72944b4702972e90f321d3ee",
+    "references/youtube-case.md": "ae90ce07b17a10bc6cf15679b149483c1476d02cb1d6389f96d1d01e5e029c97",
+    "references/editing-examples.md": "cb2a31b0d3e494346b5c430422e6c59c6fe52d1b911710bc944bff457e1f9cca",
+    "references/protection-and-scenes.md": "2f0373c8d39f357c07264d3219bc43cc6188534bbf052240f5496bac31da8dea",
+    "references/research-synthesis.md": "d25bdeb5fd66b817b0a40796bf67b5ecaa4c91347c8032fc6ad6d246de477101",
+    "references/style-profile.md": "903e0de4ead87f7764ecff8b60eba2f84668c19aacd28bd67541291a246fe95d",
+    "references/context-modes.md": "ccad6e22d45c630a7bd1fe8142363f75aa6d468d576869d8cbcfe47060b3255b",
+    "agents/openai.yaml": "a15306099f32db642b8cbaf10f61f05bc9d0d3ebbf9ec01fc4c2319d57fd11c4"
+  },
+  "behavior_test_core_sha256": "66e60974c7ad9348143ba3efe60366fee4cc4a9a085f68d3a09dc708db8e71df",
+  "post_test_changes": [
+    "references/style-profile.md：一個繁中文字校正（職称改為職稱），語意未變。",
+    "agents/openai.yaml：保留原有圖示與適用產品設定，未更動寫作指示。"
+  ]
+}
