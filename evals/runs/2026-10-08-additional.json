@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-08",
+  "timezone": "Asia/Taipei",
+  "skill_revision": "3.0.0",
+  "execution": {
+    "method": "fresh_subagents",
+    "fork_turns": "none",
+    "model": "session default, no override",
+    "groups": [
+      {
+        "task": "/root/write_plain_copy",
+        "ids": [
+          "V01",
+          "V02"
+        ]
+      },
+      {
+        "task": "/root/write_editor_note",
+        "ids": [
+          "V03"
+        ]
+      }
+    ],
+    "output_capture": "完整輸出取自執行者寫入的原始檔案，與最終回覆核對一致，未人工改寫成稿。",
+    "note": "第一組共兩題，第二組一題；未提供預期答案或驗收條件。執行者回報已讀取的檔案，但執行時沒有記錄雜湊；此檔的雜湊在試跑後核對，不標成執行時量測。",
+    "skill_files_read": [
+      "SKILL.md",
+      "references/style-profile.md",
+      "references/editing-examples.md",
+      "references/context-modes.md",
+      "references/protection-and-scenes.md"
+    ],
+    "execution_time_hashes_recorded": false
+  },
+  "cases": [
+    {
+      "id": "V01",
+      "request": "去 AI 味，保留我的口吻。原文：「我認為你現在的核心問題，都是在於 UI/UX 的美感設計能力太差了。你先找相關的資料安裝好了，不然就是純粹浪費我的 token。」",
+      "output": "我認為你現在的核心問題，就是 UI/UX 的美感設計能力太差了。你先找相關的資料安裝好，不然就是純粹浪費我的 token。",
+      "verdict": "pass",
+      "review_note": "保留 UI/UX 批評、作者立場、安裝資料與 token 說法，僅修贅詞。"
+    },
+    {
+      "id": "V02",
+      "request": "改成可直接給同事的操作通知，只根據以下素材寫：匯入器每次最多 8 MB，只接受 CSV。按「預覽」只顯示資料，按「確認寫入」才會更新名單。選「覆蓋」會取代同一編號的舊資料，須先備份。發現問題時保留原檔，不要重新上傳，專案窗口會在 10 月 12 日 11:30（台北時間）前回覆檢查結果，沒有承諾當天修好。原稿：「全新匯入機制為團隊開啟無限可能，讓協作全面提升，但不代表所有情況都能零風險完成。我們會積極處理，努力提供最好的體驗。」",
+      "output": "名單匯入操作通知\n\n1. 匯入器每次最多 8 MB，只接受 CSV。\n2. 按「預覽」只會顯示資料，按「確認寫入」才會更新名單。\n3. 選「覆蓋」會取代同一編號的舊資料，請先備份。\n\n發現問題時，請保留原檔，不要重新上傳。專案窗口會在 10 月 12 日 11:30（台北時間）前回覆檢查結果，沒有承諾當天修好。",
+      "verdict": "pass",
+      "review_note": "保留檔案限制、按鈕、覆蓋與備份、出錯處理和回覆時間，沒有新增修復承諾。"
+    },
+    {
+      "id": "V03",
+      "request": "只修語氣，不刪内容、不重排，保留三段，不查證也不補新事實。原文：\n這份價格比較是以輸入 100 萬 token、輸出 20 萬 token 為基準，逐一列出官方與平台報價。比較使用同一個模型名稱，但我們還沒確認平台回傳的模型版本，所以先保留「版本待核對」的欄位。價格頁擷取日期是 10 月 7 日，計算沒有包含快取折扣，來源網址 https://example.org/pricing?plan=A%2BB&source=report 也會留在表格裡。\n為什麼便宜，現在有兩個假設：平台談到大量採購價格，或平台補貼一部分成本。目前沒有對方的合約或成本資料，這兩個原因都只能寫成假設。我不想把便宜直接寫成「偷偷降智」，也不想為了幫平台說話，就把沒有查到的事當成已確認。\n我希望新手一開始先看懂同一份用量要付多少錢，再往下看比較方法。開頭要白話回答「真的比較便宜嗎」與「版本確認了嗎」，結尾則說明讀者下一步怎麼核對自己要用的模型。原本的數據表、計算過程和來源要全部保留，不要把完整文章改成只有幾段心得。",
+      "output": "這份價格比較以輸入 100 萬 token、輸出 20 萬 token 為基準，逐一列出官方與平台的報價。比較時用的是同一個模型名稱，但我們還沒確認平台回傳的模型版本，所以先保留「版本待核對」這一欄。價格頁是在 10 月 7 日擷取的，計算沒有包含快取折扣，來源網址 https://example.org/pricing?plan=A%2BB&source=report 也會留在表格裡。\n\n為什麼便宜，現在有兩個假設：平台談到大量採購價格，或是平台補貼一部分成本。目前沒有對方的合約或成本資料，所以這兩個原因都只能寫成假設。我不想把便宜直接寫成「偷偷降智」，也不想為了幫平台說話，就把沒有查到的事當成已確認。\n\n我希望新手一開始就看懂同一份用量要付多少錢，再往下看比較方法。開頭要用白話回答「真的比較便宜嗎」與「版本確認了嗎」，結尾則說明讀者下一步要怎麼核對自己要用的模型。原本的數據表、計算過程和來源都要保留，不要把完整文章改成只有幾段心得。",
+      "verdict": "pass",
+      "review_note": "保留三段、完整用量與網址、版本及證據狀態、假設與新手閱讀要求。"
+    }
+  ],
+  "post_run_verified_skill_files_sha256": {
+    "SKILL.md": "66e60974c7ad9348143ba3efe60366fee4cc4a9a085f68d3a09dc708db8e71df",
+    "assets/icon.svg": "49315dda7125ec5fc77ef5f2b96126d8b2121c6e72944b4702972e90f321d3ee",
+    "references/youtube-case.md": "ae90ce07b17a10bc6cf15679b149483c1476d02cb1d6389f96d1d01e5e029c97",
+    "references/editing-examples.md": "cb2a31b0d3e494346b5c430422e6c59c6fe52d1b911710bc944bff457e1f9cca",
+    "references/protection-and-scenes.md": "2f0373c8d39f357c07264d3219bc43cc6188534bbf052240f5496bac31da8dea",
+    "references/research-synthesis.md": "d25bdeb5fd66b817b0a40796bf67b5ecaa4c91347c8032fc6ad6d246de477101",
+    "references/style-profile.md": "903e0de4ead87f7764ecff8b60eba2f84668c19aacd28bd67541291a246fe95d",
+    "references/context-modes.md": "ccad6e22d45c630a7bd1fe8142363f75aa6d468d576869d8cbcfe47060b3255b",
+    "agents/openai.yaml": "a15306099f32db642b8cbaf10f61f05bc9d0d3ebbf9ec01fc4c2319d57fd11c4"
+  }
+}

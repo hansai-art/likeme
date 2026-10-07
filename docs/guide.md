@@ -15,11 +15,11 @@
 
 `~` 表示使用者的家目錄，Windows 手動複製時，在自己的使用者資料夾下建立對應目錄，這裡說的是本機技能；雲端工作階段要用該產品支援的帳號同步或專案技能方式。
 
-表格依 2026-10-02 官方文件核對：[Claude Code](https://code.claude.com/docs/en/skills)、[Codex](https://learn.chatgpt.com/docs/build-skills)、[Cursor](https://cursor.com/docs/skills)。
+表格依 2026-10-08 官方文件核對：[Claude Code](https://code.claude.com/docs/en/skills)、[Codex](https://learn.chatgpt.com/docs/build-skills)、[Cursor](https://cursor.com/docs/skills)。
 
 ## 2. 方式 A：用安裝器
 
-以下命令讀取 main。目前 v3 在 rebuild/likeme-v3 草稿分支，想使用候選版時，先依方式 B 取得該分支的完整資料夾，不把 main 的安裝指令當成 v3 安裝。
+以下命令安裝 main 的完整技能資料夾，包含 SKILL.md、references 與顯示名稱設定。已經安裝舊版時，更新整個資料夾，讓參考資料與核心規則保持同一版本。
 
 先確認電腦有 Node.js，打開終端機，貼上：
 

@@ -1,5 +1,5 @@
 {
-  "skill_revision": "3.0.0-candidate",
+  "skill_revision": "3.0.0",
   "files_sha256": {
     "SKILL.md": "66e60974c7ad9348143ba3efe60366fee4cc4a9a085f68d3a09dc708db8e71df",
     "assets/icon.svg": "49315dda7125ec5fc77ef5f2b96126d8b2121c6e72944b4702972e90f321d3ee",
