@@ -2,11 +2,13 @@
 
 ## 怎麼跑一次完整驗證
 
-1. `python3 evals/aggregate.py prepare evals/runs/日期-名稱 3 6`：切出每題三次、每次六組的執行批次，並記下技能檔案雜湊（`find hans-human-writing -type f | sort | xargs sha256sum > evals/runs/日期-名稱/skill-sha256.txt`）。
+1. `python3 evals/aggregate.py prepare evals/runs/日期-名稱 3 6`：寫下 manifest.json（預期的題目與次數）與當下的 checks.json 副本，切出每題三次、每次六組的執行批次，並記下技能檔案雜湊（`find hans-human-writing -type f | sort | xargs sha256sum > evals/runs/日期-名稱/skill-sha256.txt`）。
 2. 每個批次交給一個新的執行者，只給技能資料夾與批次檔，輸出寫成 `out-r{次}-{組}.json`。
 3. `python3 evals/check.py evals/runs/日期-名稱/out-r*.json`：自動檢查。
 4. `python3 evals/aggregate.py judge-input evals/runs/日期-名稱 6`，再依 [judge-prompt.md](judge-prompt.md) 把每份 `judge-in-*.json` 交給新的盲評代理，結果寫成 `judge-out-*.json`。
-5. `python3 evals/aggregate.py report evals/runs/日期-名稱`：產出 summary.md，三次都同時通過自動檢查與盲評才算通過。
+5. `python3 evals/aggregate.py report evals/runs/日期-名稱`：依 manifest 核對每一題每一次都有輸出與盲評，用資料夾裡的 checks.json 跑自動檢查，產出 summary.md。三次都同時通過才算通過，缺輸出或缺盲評算失敗。
+
+之後改了 `evals/checks.json` 不會影響舊批次的結果。要用新規格重評舊輸出，用 `python3 evals/check.py --spec evals/checks.json 舊批次/out-r*.json`。
 
 改了規則就至少重跑受影響的題目各三次，並在結果文件寫清楚哪些題目沒在最終雜湊上重跑。
 

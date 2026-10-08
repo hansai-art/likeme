@@ -22,6 +22,8 @@
 
 after 批的通過數沒有上升，是因為盲評標準同時變嚴（推得出來的補句也算新增），不能直接跟 before 比。看同一題的變化比較準。
 
+每個批次資料夾都存了當時的 `checks.json` 與 `manifest.json`，`aggregate.py report` 用這兩份重現結果，三批都能重現上表的數字。before 批用的是收緊前的規格，如果改用現在的 `checks.json` 重評 before 的輸出，R02（三次都有「減少」）也會失敗，結果是 29 / 37，跟 after 批一樣。
+
 ## 修了什麼
 
 | 問題 | before | 修正 | 之後 |

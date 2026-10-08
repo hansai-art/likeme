@@ -1,14 +1,16 @@
 """彙整多次試跑：自動檢查、盲評與通過率。
 
 用法：
-    python3 evals/aggregate.py prepare 輸出目錄 次數 每次分組數
+    python3 evals/aggregate.py prepare 輸出目錄 次數 每次分組數 [題號,題號...]
         依題庫切出每次的執行批次 batch-r{次}-{組}.json，執行者讀這些檔案寫稿。
+        同時寫下 manifest.json（預期的題目與次數）與當時的 checks.json，之後重現結果都用這兩份。
     python3 evals/aggregate.py judge-input 輸出目錄 分組數
         合併 out-r*-*.json，依題目切成盲評檔 judge-in-{組}.json（同一題的多次輸出放在一起）。
     python3 evals/aggregate.py report 輸出目錄
-        跑 check.py、讀 judge-out-*.json，寫出 summary.md 與 results.json。
+        依 manifest.json 核對每一題每一次都有輸出與盲評，用資料夾裡的 checks.json 跑自動檢查，
+        讀 judge-out-*.json，寫出 summary.md 與 results.json。
 
-一題算通過，要每一次輸出都同時通過自動檢查與盲評。
+一題算通過，要 manifest 裡預期的每一次輸出都在，而且都同時通過自動檢查與盲評。缺輸出或缺盲評都算失敗。
 """
 import json
 import sys
@@ -17,7 +19,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
-from check import check_case  # noqa: E402
+from check import check_case, load_specs, DEFAULT_SPEC  # noqa: E402
 
 PROMPT_FILES = ["prompts.json", "additional-prompts.json", "v4-prompts.json"]
 
@@ -29,9 +31,12 @@ def prompts():
     return items
 
 
-def prepare(out_dir, reps, groups):
+def prepare(out_dir, reps, groups, only=None):
     out_dir.mkdir(parents=True, exist_ok=True)
-    items = prompts()
+    items = [p for p in prompts() if not only or p["id"] in only]
+    manifest = {"reps": reps, "ids": [p["id"] for p in items]}
+    (out_dir / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=1), encoding="utf-8")
+    (out_dir / "checks.json").write_text(DEFAULT_SPEC.read_text(encoding="utf-8"), encoding="utf-8")
     for r in range(1, reps + 1):
         for g in range(groups):
             batch = items[g::groups]
@@ -71,18 +76,26 @@ def judge_input(out_dir, groups):
 
 
 def report(out_dir):
+    manifest_path = out_dir / "manifest.json"
+    if not manifest_path.exists():
+        sys.exit(f"{out_dir} 沒有 manifest.json，無法確認預期的題目與次數")
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    spec_path = out_dir / "checks.json"
+    if not spec_path.exists():
+        sys.exit(f"{out_dir} 沒有當時的 checks.json，無法重現自動檢查")
+    specs = load_specs(spec_path)
+    expected_reps = list(range(1, manifest["reps"] + 1))
     runs = load_outputs(out_dir)
     judged = {}
     for path in out_dir.glob("judge-out-*.json"):
         for v in json.loads(path.read_text(encoding="utf-8")):
             judged[(v["id"], int(v["rep"]))] = v
     rows, disagreements, results = [], [], []
-    order = [p["id"] for p in prompts() if p["id"] in runs]
-    for cid in order:
-        reps = sorted(runs[cid])
+    for cid in manifest["ids"]:
         check_ok = judge_ok = 0
-        for rep in reps:
-            errors = check_case(runs[cid][rep])
+        for rep in expected_reps:
+            case = runs.get(cid, {}).get(rep)
+            errors = check_case(case, specs) if case else ["缺少這一次的輸出"]
             j = judged.get((cid, rep))
             j_pass = j is not None and j["verdict"] == "pass"
             check_ok += not errors
@@ -92,13 +105,13 @@ def report(out_dir):
             results.append({"id": cid, "rep": rep, "check": "pass" if not errors else "fail",
                             "check_errors": errors, "judge": j["verdict"] if j else "missing",
                             "judge_reason": j["reason"] if j else ""})
-        n = len(reps)
+        n = len(expected_reps)
         final = "pass" if check_ok == n and judge_ok == n else "fail"
         rows.append((cid, f"{check_ok}/{n}", f"{judge_ok}/{n}", final))
 
     passed = sum(r[3] == "pass" for r in rows)
     lines = ["# 試跑彙整", "",
-             f"每題 {max(len(v) for v in runs.values())} 次，每一次都要同時通過自動檢查與盲評才算通過。",
+             f"每題 {manifest['reps']} 次，每一次都要同時通過自動檢查與盲評才算通過，缺輸出或缺盲評算失敗。",
              "", f"通過 {passed} / {len(rows)} 題。", "",
              "| 題目 | 自動檢查 | 盲評 | 結果 |", "| --- | --- | --- | --- |"]
     lines += [f"| {cid} | {c} | {j} | {f} |" for cid, c, j, f in rows]
@@ -126,7 +139,8 @@ if __name__ == "__main__":
         sys.exit(__doc__)
     cmd, target = sys.argv[1], Path(sys.argv[2])
     if cmd == "prepare":
-        prepare(target, int(sys.argv[3]), int(sys.argv[4]))
+        only = set(sys.argv[5].split(",")) if len(sys.argv) > 5 else None
+        prepare(target, int(sys.argv[3]), int(sys.argv[4]), only)
     elif cmd == "judge-input":
         judge_input(target, int(sys.argv[3]))
     elif cmd == "report":

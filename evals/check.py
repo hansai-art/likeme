@@ -2,6 +2,9 @@
 
 用法：
     python3 evals/check.py 輸出檔.json [輸出檔2.json ...]
+    python3 evals/check.py --spec 某次試跑/checks.json 輸出檔.json ...
+
+每次試跑的資料夾裡會存一份當時的 checks.json，重現舊結果時用 --spec 指定它。
 
 輸出檔格式：[{"id": "R01", "output": "...", "followup_output": "..."}]
 也可以直接吃 runs/*.json 裡某一輪的 cases 陣列。
@@ -18,7 +21,11 @@ import sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-SPECS = json.loads((HERE / "checks.json").read_text(encoding="utf-8"))
+DEFAULT_SPEC = HERE / "checks.json"
+
+
+def load_specs(path=None):
+    return json.loads(Path(path or DEFAULT_SPEC).read_text(encoding="utf-8"))
 
 CJK = r"一-鿿"
 HALF_PUNCT = re.compile(rf"[{CJK}][,.;:?!]|[,.;:?!][{CJK}]")
@@ -114,6 +121,11 @@ def check_text(text, spec, first_output=None):
             errors.append(f"列了 {len(items)} 項，最多 {spec['max_items']}")
     if "max_chars" in spec and len(flat) > spec["max_chars"]:
         errors.append(f"長度 {len(flat)} 字，上限 {spec['max_chars']}")
+    if "cjk_range" in spec:  # 舊版規格（before 批）使用
+        n = len(re.findall(rf"[{CJK}]", text))
+        lo, hi = spec["cjk_range"]
+        if not lo <= n <= hi:
+            errors.append(f"中文字數 {n}，應在 {lo}–{hi}")
     if "length_target" in spec:
         target = spec["length_target"]
         lo, hi = round(target * 0.85), round(target * 1.2)
@@ -127,8 +139,9 @@ def check_text(text, spec, first_output=None):
     return errors
 
 
-def check_case(case):
-    spec = SPECS.get(case["id"])
+def check_case(case, specs=None):
+    specs = specs if specs is not None else load_specs()
+    spec = specs.get(case["id"])
     if spec is None:
         return [f"checks.json 沒有 {case['id']} 的規格"]
     errors = check_text(case["output"], spec)
@@ -150,11 +163,15 @@ def load(path):
     return data
 
 
-def main(paths):
+def main(args):
+    spec_path = None
+    if args[:1] == ["--spec"]:
+        spec_path, args = args[1], args[2:]
+    specs = load_specs(spec_path)
     failed = 0
-    for path in paths:
+    for path in args:
         for case in load(path):
-            errors = check_case(case)
+            errors = check_case(case, specs)
             status = "FAIL" if errors else "pass"
             failed += bool(errors)
             print(f"{status}\t{case['id']}\t{' | '.join(errors) if errors else ''}".rstrip())
