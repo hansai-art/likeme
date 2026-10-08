@@ -11,6 +11,7 @@
 - 單輪紀錄：{"cases": [...]}（runs/2026-10-08-final.json 這類）
 - 多輪紀錄：{"rounds": [{"round": 1, "cases": [...]}, ...]}（runs/2026-10-08-v4.json），每筆會標上輪次
 - 以題號為鍵的物件：{"R01": {"id": "R01", "output": "..."}}
+- 舊紀錄的多輪對話存在 turns 裡，會自動轉成 output 與 followup_output
 
 這支腳本只檢查程式判斷得了的條件：標點、敬稱、對岸用詞、必留資料、
 原文不動、正文外說明、段落數、項目數與長度。內容有沒有補事實、語氣像不像作者，
@@ -159,8 +160,23 @@ def check_case(case, specs=None):
     return errors
 
 
+def normalize(case):
+    """舊紀錄把多輪對話存在 turns 裡，轉成 output 與 followup_output。"""
+    turns = case.get("turns")
+    if turns:
+        case = dict(case)
+        case.setdefault("output", turns[0]["output"])
+        if len(turns) > 1 and not case.get("followup_output"):
+            case["followup_output"] = turns[1]["output"]
+    return case
+
+
 def load(path):
     """回傳 (標籤, case) 清單，標籤用來在多輪紀錄裡分辨輪次。"""
+    return [(label, normalize(case)) for label, case in _load(path)]
+
+
+def _load(path):
     data = json.loads(Path(path).read_text(encoding="utf-8"))
     if isinstance(data, list):
         return [(c["id"], c) for c in data]

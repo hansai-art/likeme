@@ -32,7 +32,9 @@ def prompts():
 
 
 def prepare(out_dir, reps, groups, only=None):
-    out_dir.mkdir(parents=True, exist_ok=True)
+    if out_dir.exists() and any(out_dir.iterdir()):
+        sys.exit(f"{out_dir} 已經有檔案，為了不讓舊的輸出或盲評混進新的一批，請換一個新的資料夾名稱")
+    out_dir.mkdir(parents=True)
     items = [p for p in prompts() if not only or p["id"] in only]
     manifest = {"reps": reps, "ids": [p["id"] for p in items]}
     (out_dir / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=1), encoding="utf-8")
@@ -54,10 +56,24 @@ def load_outputs(out_dir):
     return runs
 
 
+def batch_requests(out_dir):
+    """從這批的 batch-r*.json 讀回當時交給執行者的題目，不讀 repo 裡現在的題庫。"""
+    by_id = {}
+    for path in sorted(out_dir.glob("batch-r*-*.json")):
+        for p in json.loads(path.read_text(encoding="utf-8")):
+            by_id.setdefault(p["id"], p)
+    return by_id
+
+
 def judge_input(out_dir, groups):
     runs = load_outputs(out_dir)
-    by_id = {p["id"]: p for p in prompts()}
-    ids = [p["id"] for p in prompts() if p["id"] in runs]
+    by_id = batch_requests(out_dir)
+    manifest_path = out_dir / "manifest.json"
+    order = json.loads(manifest_path.read_text(encoding="utf-8"))["ids"] if manifest_path.exists() else list(by_id)
+    missing = [cid for cid in order if cid not in by_id]
+    if missing:
+        sys.exit(f"這批的 batch 檔裡找不到題目：{missing}")
+    ids = [cid for cid in order if cid in runs]
     for g in range(groups):
         chunk = []
         for cid in ids[g::groups]:
