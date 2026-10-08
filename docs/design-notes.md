@@ -13,7 +13,9 @@ main 的 README 簡化是使用者指定的公開呈現方式，不能用行數�
 | 檔案 | 用途 |
 | --- | --- |
 | [SKILL.md](../hans-human-writing/SKILL.md) | 任務範圍、改動判斷、保真與交付。 |
-| [作者偏好](../hans-human-writing/references/style-profile.md) | 本人明確偏好與正向樣本判斷，分清待改 AI 原稿。 |
+| [作者聲音](../hans-human-writing/references/style-profile.md) | 本人明確偏好、標點、幽默、回覆長度與 FB 結構，分清待改 AI 原稿。 |
+| [AI 腔痕跡目錄](../hans-human-writing/references/ai-patterns.md) | 44 種痕跡，依句子在做什麼分組，每條附誤傷邊界，含假人味一組。 |
+| [台灣用語與標點](../hans-human-writing/references/taiwan-zh.md) | 依語境判斷的用語表、作者標點規則與保持半形的情況。 |
 | [編輯案例](../hans-human-writing/references/editing-examples.md) | 原本完整的 8 組產品案例與 5 組其他情境，含應保留反例。 |
 | [情境寫法](../hans-human-writing/references/context-modes.md) | 品牌、公告、客服、教學與案例的正式程度與交付。 |
 | [資訊核對](../hans-human-writing/references/protection-and-scenes.md) | 日期、上下限、承諾、引語、程式碼、URL 與來源歸屬。 |
@@ -36,4 +38,8 @@ main 的 README 簡化是使用者指定的公開呈現方式，不能用行數�
 
 技能結構、相對連結與文字格式另外檢查。這些試跑核對內容、邊界與基本作者偏好，沒有使用 AI 偵測分數，也沒有把通過率當成本人文風認證。
 
-版本：3.0.0，2026-10-08。
+## v4 改了什麼
+
+v3 的判斷邏輯完整，但只靠原則，模型遇到時代帽子、金句、假坦白這類句型抓不穩，也沒有台灣用語層，技能文件本身還有十幾處分號違反作者的標點規則。v4 補上痕跡目錄與台灣用語兩份 references，作者聲音從六條擴充成完整設定，SKILL.md 改成「範圍、診斷、處理、寫法、保真、交稿」六步，並移除所有技能文件中的分號與破折號。試跑結果見 [v4 結果](../evals/v4-results.md)。
+
+版本：4.0.0，2026-10-08。
