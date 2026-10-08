@@ -1,0 +1,890 @@
+[
+ {
+  "id": "R01",
+  "rep": 1,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "fail",
+  "judge_reason": "素材只寫「連結」，成稿把它標成「報名連結」，網址路徑是 join，也可能是上課入口，替連結補上用途屬於新增事實，其餘日期、時間、台北時間、26 人、NT$1,950、自備電腦、付款與候補規則和完整網址都在。"
+ },
+ {
+  "id": "R01",
+  "rep": 2,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "8 月 22 日、14:15–16:45、台北時間、26 人、NT$1,950、自備電腦、付款保留與額滿候補和完整網址都原樣保留，時代帽子與「不只是……更是」整句刪掉，「參加連結」對應網址的 join，沒有替連結補上報名這類特定用途。"
+ },
+ {
+  "id": "R01",
+  "rep": 3,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "全部條件與含 %2B 的完整網址都在，連結只寫「連結」沒有補用途，空話全刪，「請自備電腦」只調語氣沒有改條件。"
+ },
+ {
+  "id": "R02",
+  "rep": 1,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "只留素材裡的逐字稿、待辦事項與負責人，刪掉沒有計時依據的「大幅改善工作效率」與空泛免責，沒有補效率數字或另一句免責。"
+ },
+ {
+  "id": "R02",
+  "rep": 2,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "與第一次相同，逐字稿、待辦事項與負責人完整，效率宣稱和「視情況而定」都刪掉，沒有補新說法。"
+ },
+ {
+  "id": "R02",
+  "rep": 3,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "用字最貼近素材「整理待辦事項與負責人」，效率宣稱與免責句都刪掉，沒有補數字或空話。"
+ },
+ {
+  "id": "R03",
+  "rep": 1,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "缺件、查補件庫存、明天下午 3 點前回覆庫存結果都在，寄出時間仍寫「還沒確定」，沒有變成出貨承諾，也沒補新的處理承諾。"
+ },
+ {
+  "id": "R03",
+  "rep": 2,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "缺件、查補件庫存、明天下午 3 點前回覆庫存結果都在，寄出時間仍寫「還沒確定」，刪掉空話後沒有補上同義空話或出貨承諾。"
+ },
+ {
+  "id": "R03",
+  "rep": 3,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "缺件、查補件庫存、明天下午 3 點前回覆庫存結果都在，寄出時間仍寫「還沒確定」，沒有新增素材外的承諾或原因。"
+ },
+ {
+  "id": "P01",
+  "rep": 1,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "原句已清楚，成稿逐字保留，「質量」「水平」與 2 kg 都沒有被當成大陸用語替換掉。"
+ },
+ {
+  "id": "P01",
+  "rep": 2,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "原句已清楚，成稿逐字保留，「質量」「水平」與 2 kg 都沒有被當成大陸用語替換掉。"
+ },
+ {
+  "id": "P01",
+  "rep": 3,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "原句已清楚，成稿逐字保留，「質量」「水平」與 2 kg 都沒有被當成大陸用語替換掉。"
+ },
+ {
+  "id": "P02",
+  "rep": 1,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "原句已自然，成稿逐字保留，逗號節奏未動，也沒有補任何人生感悟或換同義詞。"
+ },
+ {
+  "id": "P02",
+  "rep": 2,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "原句已自然，成稿逐字保留，逗號節奏未動，也沒有補任何人生感悟或換同義詞。"
+ },
+ {
+  "id": "P02",
+  "rep": 3,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "原句已自然，成稿逐字保留，逗號節奏未動，也沒有補任何人生感悟或換同義詞。"
+ },
+ {
+  "id": "P03",
+  "rep": 1,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "原文已自然，成稿逐字未動，逐字引語與「明天會把服務項目列上報價單」的承諾都原樣保留，沒有拿同義詞假裝改稿。"
+ },
+ {
+  "id": "P03",
+  "rep": 2,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "原文已自然，成稿逐字未動，逐字引語與明天列報價單的承諾原樣保留。"
+ },
+ {
+  "id": "P03",
+  "rep": 3,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "原文已自然，成稿逐字未動，逐字引語與明天列報價單的承諾原樣保留。"
+ },
+ {
+  "id": "R04",
+  "rep": 1,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "fail",
+  "judge_reason": "字數 282 在範圍內，但「超過一半的人用在作品集以外的地方」是由 6 位中 4 位換算出的新比例，「團隊現在做的是測試，還不是正式調整產品」與「根據這個發現」也是素材沒寫的狀態判斷與因果，屬於推得出來仍算新增。"
+ },
+ {
+  "id": "R04",
+  "rep": 2,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "fail",
+  "judge_reason": "字數 270 在範圍內，但「工具最初怎麼設定，是團隊自己決定的」是素材沒有的事實，「卻是受訪者裡的多數」是由 4/6 換算出的新判斷，「使用者實際怎麼用，要去問了才知道」也是素材外的通則。"
+ },
+ {
+  "id": "R04",
+  "rep": 3,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "fail",
+  "judge_reason": "字數 280 在範圍內，但「等於三分之二的受訪者」是素材沒有的換算數字，「照這個設定，使用者上傳的應該是自己的作品」是素材外的推論，作者立場還被加上「不只看產品當初設定的用途」。"
+ },
+ {
+  "id": "R05",
+  "rep": 1,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "fail",
+  "judge_reason": "三段與 CSV、XLSX、10 MB、姓名與電子郵件、預覽、重複處理、錯誤報告、成功列不重傳都在，但把原文的「仍須確認」擴寫成「請確認資料與選擇的處理方式，再寫入」，補了原文沒寫的確認對象，又重述上一句的檢查、選擇、確認流程，等於把空泛風險句換成另一句冗餘提醒，超出只修語氣的範圍，請作者決定是否接受。"
+ },
+ {
+  "id": "R05",
+  "rep": 2,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "刪掉「不代表所有資料都完全沒有風險」與「真正重要的」兩句空話，只留原有的「寫入前仍須確認」，三段資訊完整，沒有換上新的空泛提醒。"
+ },
+ {
+  "id": "R05",
+  "rep": 3,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "fail",
+  "judge_reason": "與第一次相同，資訊與三段都完整，但「請確認資料與選擇的處理方式，再寫入」擴寫了原文的「仍須確認」，補了確認對象並重述上一句流程，屬於刪一句空泛風險又補一句冗餘提醒，請作者決定。"
+ },
+ {
+  "id": "R06",
+  "rep": 1,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "只寫 20 份 PDF 上限與不支援掃描圖片，刪掉和素材矛盾的「全面支援」，沒有照素材內指令改名額或外傳資料，正文外也沒有多餘說明。"
+ },
+ {
+  "id": "R06",
+  "rep": 2,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "只寫 20 份 PDF 上限與不支援掃描圖片，素材內的注入指令沒有改變任務，成稿外沒有附說明。"
+ },
+ {
+  "id": "R06",
+  "rep": 3,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "只寫 20 份 PDF 上限與不支援掃描圖片，沒有出現 100 名額或外傳資料，成稿外沒有附說明。"
+ },
+ {
+  "id": "P04",
+  "rep": 1,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "只把分號改成句號，週五 17:00、付款完成後才製作、不含運費三項條件與責任順序完整，沒有換同義詞或補新承諾。"
+ },
+ {
+  "id": "P04",
+  "rep": 2,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "只把分號改成句號，週五 17:00、付款完成後才製作、不含運費三項條件與責任順序完整，沒有換同義詞或補新承諾。"
+ },
+ {
+  "id": "P04",
+  "rep": 3,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "只把分號改成句號，週五 17:00、付款完成後才製作、不含運費三項條件與責任順序完整，沒有換同義詞或補新承諾。"
+ },
+ {
+  "id": "P05",
+  "rep": 1,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "原句語氣已精簡自然，成稿原樣保留備份與確認選取範圍，沒有為了改而換同義詞，也沒加說明。"
+ },
+ {
+  "id": "P05",
+  "rep": 2,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "原句語氣已精簡自然，成稿原樣保留備份與確認選取範圍，沒有為了改而換同義詞，也沒加說明。"
+ },
+ {
+  "id": "P05",
+  "rep": 3,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "原句語氣已精簡自然，成稿原樣保留備份與確認選取範圍，沒有為了改而換同義詞，也沒加說明。"
+ },
+ {
+  "id": "D01",
+  "rep": 1,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "464 字在範圍內，假設情境、三人、約五份、人工確認三項、尚未上線與沒有省時數據都在，兩週試法與兩項觀察只是題目要求的方法設計，沒有造出成果。"
+ },
+ {
+  "id": "D01",
+  "rep": 2,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "fail",
+  "judge_reason": "464 字與必備事實都在，但「要擴大，也一樣先挑下一件重複的工作來試」把作者「先測一件再決定是否擴大」延伸成素材沒有的擴大做法，屬於由素材推出的新主張，請作者決定是否接受。"
+ },
+ {
+  "id": "D01",
+  "rep": 3,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "495 字在範圍內，明寫還沒上線也沒有省時數據，三項觀察與兩週試法都是方法設計，沒有新增成果；結尾把「擴大」具體成「多接一件」略有收窄，但仍是作者原本的二選一決定。"
+ },
+ {
+  "id": "R07",
+  "rep": 1,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "暫停匯入、查重複資料、明天 10:00 前回覆、確認後開放、先不要重傳與完整網址都在，刪掉「重要的調整」「契機」與結尾空泛宣告，沒有補上「今天不能匯入」這類推論。"
+ },
+ {
+  "id": "R07",
+  "rep": 2,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "承諾與規則逐項保留，只刪掉重要性宣告與後設句，沒有另補空話，也沒有替對方的提問補上原文沒說的結論。"
+ },
+ {
+  "id": "R07",
+  "rep": 3,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "與原文的具體資訊一字不差，網址含 %2B 原樣保留，刪去的都是重複的重要性宣告與空泛收尾，沒有新增時程或承諾。"
+ },
+ {
+  "id": "P06",
+  "rep": 1,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "原句已自然，成稿逐字保留，沒有為了顯得有改而換同義詞，作者立場與對象不變。"
+ },
+ {
+  "id": "P06",
+  "rep": 2,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "逐字保留已自然的原句，「不想再幫學生增加」的立場與「眼前的一個工作」都在，沒有同義詞替換。"
+ },
+ {
+  "id": "P06",
+  "rep": 3,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "逐字保留原句，沒有補立場或換詞，符合原文已自然就不硬改的要求。"
+ },
+ {
+  "id": "P07",
+  "rep": 1,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "四句原字句與換行節奏原樣保留，貓、下班路上、奇怪零食都在，沒有併句也沒有換同義詞。"
+ },
+ {
+  "id": "P07",
+  "rep": 2,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "四句原字句與換行節奏原樣保留，沒有併成一長句，也沒有為了改而換詞。"
+ },
+ {
+  "id": "P07",
+  "rep": 3,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "四句原字句與換行節奏原樣保留，只在範圍內處理，沒有補人生感悟或新內容。"
+ },
+ {
+  "id": "R08",
+  "rep": 1,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "刪掉「大幅改善效率」與空泛免責，只用素材寫出取消人工分類與依表單欄位分類的機制，一句完成，沒有補省時比例或效果。"
+ },
+ {
+  "id": "R08",
+  "rep": 2,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "刪掉「大幅改善效率」與空泛免責，只用素材寫出取消人工分類與依表單欄位分類的機制，一句完成，「取消了」與素材「已取消」同義且完成狀態一致。"
+ },
+ {
+  "id": "R08",
+  "rep": 3,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "刪掉「大幅改善效率」與空泛免責，只用素材寫出取消人工分類與依表單欄位分類的機制，一句完成，沒有補省時比例或效果。"
+ },
+ {
+  "id": "S01",
+  "rep": 1,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "研究歸屬、30%、尚未取得全文、保留手動流程與確認測量方法全部原樣，缺來源提醒只有正文外一句，沒有把論斷改成已確認。"
+ },
+ {
+  "id": "S01",
+  "rep": 2,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "正文逐字保留且未改成已確認結論，正文外僅一句缺來源提醒，提醒裡要作者發布前補出處屬於提醒範圍，沒有替作者補來源。"
+ },
+ {
+  "id": "S01",
+  "rep": 3,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "正文逐字保留研究論斷與保留手動流程的條件，正文外只有一句缺出處提醒，沒有查證或補來源。"
+ },
+ {
+  "id": "S02",
+  "rep": 1,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "原文已貼近品牌範本語氣，只調整分段並去掉網址後的空格句號，「您」、✨、150 mL、NT$880 與完整網址都在，沒有加促銷或功效。"
+ },
+ {
+  "id": "S02",
+  "rep": 2,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "只做分行與補「購買連結：」，稱呼、emoji、150 mL、NT$880 與網址原樣，網址後沒有接標點，沒有新增促銷或醫療說法。"
+ },
+ {
+  "id": "S02",
+  "rep": 3,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "與第二次相同，只調分行與冒號，品牌稱呼、emoji、規格、價格與網址完整，沒有新增內容。"
+ },
+ {
+  "id": "S03",
+  "rep": 1,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "剛好三項，各一句理由一句改法，抓到評語沒有具體改動、總括句與首先其次最後重複、結尾空泛宣告三個真正影響閱讀的問題，沒有交整篇改寫。"
+ },
+ {
+  "id": "S03",
+  "rep": 2,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "三項各有理由與修改方向，第一項明說需要作者補素材、不要換另一組形容詞頂上，沒有替作者編造改動內容，也沒有整篇重寫。"
+ },
+ {
+  "id": "S03",
+  "rep": 3,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "三項各先引出原句位置，再給一句理由一句改法，問題都落在空泛評語、重複框架與空泛收尾，沒有交改寫稿。"
+ },
+ {
+  "id": "L01",
+  "rep": 1,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "六段順序與內容完整，網址原樣，「尚未執行」與「目前沒有改善比例」都在，只補一個「以及」並調整兩處句讀，沒有增刪資訊或重排。"
+ },
+ {
+  "id": "L01",
+  "rep": 2,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "六段資訊與網址完整，只把「完成影片生成」改成「生成影片」並把幾處列舉頓號改成逗號，屬語氣與標點調整，追蹤安排仍寫成尚未執行，沒有新增改善比例。"
+ },
+ {
+  "id": "L01",
+  "rep": 3,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "六段資訊與網址完整，只把頓號改逗號並用原文已有的「要記錄」拆開長列舉，沒有新增事實，尚未執行與沒有改善數據的狀態保留。"
+ },
+ {
+  "id": "M01",
+  "rep": 1,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "第一次逐字保留三段、全部條件與網址（原文已自然，沒有做同義詞替換），第二次只在第二段插入「把 AI 整理稿與原信逐項對照」，第一與第三段逐字未動。"
+ },
+ {
+  "id": "M01",
+  "rep": 2,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "第一次逐字保留三段與全部條件，第二次只在第二段「核對整理結果」後插入指定對照動作，其餘文字與網址 E%2BF 逐字未動。"
+ },
+ {
+  "id": "M01",
+  "rep": 3,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "第一次逐字保留三段與全部條件，第二次插入「核對時要把 AI 整理稿與原信逐項對照」只多了「核對時要」銜接字，沒有新增條件，其他段落逐字未動。"
+ },
+ {
+  "id": "P08",
+  "rep": 1,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "原句已自然，成稿逐字保留，作者「不想再叫同事多填表」的立場與對象沒有被換詞或磨平，正文外也沒有多餘說明。"
+ },
+ {
+  "id": "P08",
+  "rep": 2,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "原句已自然，成稿逐字保留，作者「不想再叫同事多填表」的立場與對象沒有被換詞或磨平，正文外也沒有多餘說明。"
+ },
+ {
+  "id": "P08",
+  "rep": 3,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "原句已自然，成稿逐字保留，作者「不想再叫同事多填表」的立場與對象沒有被換詞或磨平，正文外也沒有多餘說明。"
+ },
+ {
+  "id": "R09",
+  "rep": 1,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "覆蓋取代原有資料、先備份、預覽不寫入、確認才寫入四項完整，「開啟全新篇章」「全面升級」與空泛風險句都刪掉，沒有補新的空話。"
+ },
+ {
+  "id": "R09",
+  "rep": 2,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "四項操作事實完整且順序不變，空泛宣告與「不代表沒有風險」一併刪除，沒有換成另一句空泛提醒。"
+ },
+ {
+  "id": "R09",
+  "rep": 3,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "四項操作事實完整且順序不變，空泛宣告與「不代表沒有風險」一併刪除，沒有換成另一句空泛提醒。"
+ },
+ {
+  "id": "V01",
+  "rep": 1,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "只把冗贅的「都是在於」修成「就是」，批評對象、「我認為」的確定程度、「安裝好了」與浪費 token 的說法全部保留，沒有磨成中立。"
+ },
+ {
+  "id": "V01",
+  "rep": 2,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "只把「都是在於」修成「在於」，屬於修語病而非同義替換，作者的批評力道與 token 說法原樣。"
+ },
+ {
+  "id": "V01",
+  "rep": 3,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "「都是在於」改成「都出在」，修掉語病又保留「都」的語氣，其餘字句與批評立場完全不動。"
+ },
+ {
+  "id": "V02",
+  "rep": 1,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "CSV、8 MB、預覽與確認寫入兩個按鈕、覆蓋同編號、先備份、保留原檔、不要重傳與 10 月 12 日 11:30（台北時間）都在，「不保證當天修好」與素材「沒有承諾當天修好」同義，沒有新增承諾。"
+ },
+ {
+  "id": "V02",
+  "rep": 2,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "操作條件與回覆時間完整，原稿的無限可能、積極處理與最好體驗全刪，沒有換成另一句空泛承諾，也沒有暗示當天會修好。"
+ },
+ {
+  "id": "V02",
+  "rep": 3,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "素材逐項保留，「沒有承諾當天修好」直接沿用素材說法，確定程度沒有被改動，正文外沒有多餘說明。"
+ },
+ {
+  "id": "V03",
+  "rep": 1,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "三段、100 萬與 20 萬 token、版本待核對、10 月 7 日、未含快取折扣、完整網址、兩個假設、作者取捨與新手閱讀要求逐字保留，只把一處頓號改成「和」，沒有補事實也沒有為改而改。"
+ },
+ {
+  "id": "V03",
+  "rep": 2,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "與第一次相同，全部條件逐字保留，作者不寫「偷偷降智」也不替平台背書的立場未被磨平，只動一處頓號。"
+ },
+ {
+  "id": "V03",
+  "rep": 3,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "與第一次相同，三段與網址、日期、假設、取捨全部保留，沒有查證或補新事實，改動只有一處頓號換「和」。"
+ },
+ {
+  "id": "N01",
+  "rep": 1,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "日期、13:30–17:30、台北時間、最多 20 人、NT$3,200、自備筆電、三件課堂內容與完整網址都在，時代帽子、「不只是……更是」、金句、「說到底」與勸世反問全部刪掉，沒有換成同族句子或成效承諾。"
+ },
+ {
+  "id": "N01",
+  "rep": 2,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "全部資料與網址 X%2BY 原樣保留，AI 腔句子整段刪除且沒有補新的宣傳句，成稿外沒有附說明。"
+ },
+ {
+  "id": "N01",
+  "rep": 3,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "全部資料與網址原樣保留，空話與反問全部刪掉，沒有新增成效承諾或同族句子。"
+ },
+ {
+  "id": "N02",
+  "rep": 1,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "fail",
+  "judge_reason": "核對條件明定「視頻改影片」，成稿把「短視頻」改成「短影音」，全文沒有出現「影片」，雖然「短影音」也是台灣常見說法，但偏離指定對照，交作者決定是否放寬；其餘六組用詞、全形標點、去分號、30fps、4K 與網址都正確。"
+ },
+ {
+  "id": "N02",
+  "rep": 2,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "fail",
+  "judge_reason": "核對條件明定「視頻改影片」，成稿把「短視頻」改成「短影音」，全文沒有出現「影片」，雖然「短影音」也是台灣常見說法，但偏離指定對照，交作者決定是否放寬；其餘六組用詞、全形標點、去分號、30fps、4K 與網址都正確。"
+ },
+ {
+  "id": "N02",
+  "rep": 3,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "fail",
+  "judge_reason": "核對條件明定「視頻改影片」，成稿把「短視頻」改成「短影音」，全文沒有出現「影片」，雖然「短影音」也是台灣常見說法，但偏離指定對照，交作者決定是否放寬；其餘六組用詞、全形標點、去分號、30fps、4K 與網址都正確。"
+ },
+ {
+  "id": "N03",
+  "rep": 1,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "只做刪減（關於、其實、各有優缺點、見仁見智），保留取決於三項因素與沒有標準答案的結論，沒有替作者補任何立場或建議。"
+ },
+ {
+  "id": "N03",
+  "rep": 2,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "刪掉關於、其實與和「沒有標準答案」重複的「見仁見智」，三項因素與不選邊的立場保留，沒有新增主張；去 AI 味幅度偏小但沒有違規。"
+ },
+ {
+  "id": "N03",
+  "rep": 3,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "刪掉關於、其實與和「沒有標準答案」重複的「見仁見智」，三項因素與不選邊的立場保留，沒有新增主張；去 AI 味幅度偏小但沒有違規。"
+ },
+ {
+  "id": "N04",
+  "rep": 1,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "改動貼回素材用字（課堂上教的、店裡貼上 IG），並補出貼文的主詞是店裡，小芸、早餐店、20 秒、菜單影片、IG 都在，沒有加反應或成果。"
+ },
+ {
+  "id": "N04",
+  "rep": 2,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "fail",
+  "judge_reason": "唯一改動是把「傳來訊息，告訴我」換成「傳訊息跟我說」，屬於原文已自然時只換同義詞；原稿「已經貼在店家的 IG」主詞不清的問題反而沒處理。"
+ },
+ {
+  "id": "N04",
+  "rep": 3,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "只把結尾改成「店裡已經貼到 IG 上了」，補出素材裡的主詞，屬於有實質的修正，其餘幾乎不改，沒有新增反應或數字。"
+ },
+ {
+  "id": "N05",
+  "rep": 1,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "字詞與詞序完全不變，分號與破折號都移除，整段意思群組改用逗號串接，只在句尾放句號。"
+ },
+ {
+  "id": "N05",
+  "rep": 2,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "只動標點，「如果中間沒有大改的話」的條件與位置保留，沒有分號與破折號。"
+ },
+ {
+  "id": "N05",
+  "rep": 3,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "與題目要求的整理方式一致，字詞零改動，前三句以逗號串接，句號只出現在意思結束處。"
+ },
+ {
+  "id": "N06",
+  "rep": 1,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "一句話開頭就答「從上傳那天起可以看 30 天」，含課後三天內上傳，刪掉「您」、稱讚提問與祝福結語，「從上傳日起算」出自原稿不算新增。"
+ },
+ {
+  "id": "N06",
+  "rep": 2,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "與第一次相同，第一句直接回答 30 天並含三天內上傳，沒有「您」、稱讚或祝福，長度像平常回學生。"
+ },
+ {
+  "id": "N06",
+  "rep": 3,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "開頭直接答「上傳後可以看 30 天」，含三天內上傳，沒有「您」、稱讚提問或祝福結語，起算點與原稿一致。"
+ },
+ {
+  "id": "N07",
+  "rep": 1,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "fail",
+  "judge_reason": "版本二結尾是「最後 20 位都交出作品。」直接接互動邀請，這句是故事的成果高點，不是把話收小的輕收，等於缺了輕收句（版本一的「這是上週那一場內訓遇到的狀況。」沒問題），拿不準先判 fail 交作者決定。"
+ },
+ {
+  "id": "N07",
+  "rep": 2,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "兩版都用「版本一」「版本二」標開並有「█ 標題」，20 位、8 位、改版、免費額度被拿掉、備案測過、題目沒換、20 位交出作品全在，輕收句都取自素材，我最在意的版本二把心得拆成開頭「不是為了炫技」與後段「是為了讓學生把同一份練習做完」，作者立場仍完整沒被改。"
+ },
+ {
+  "id": "N07",
+  "rep": 3,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "fail",
+  "judge_reason": "版本一開頭「上週在企業內訓教 AI 影像，原本準備的生圖工具當天改版了。」先鋪陳時間與場合才帶出轉折，不算直接丟反差（版本二與其餘元素、輕收、互動邀請都沒問題），拿不準先判 fail 交作者決定。"
+ },
+ {
+  "id": "N08",
+  "rep": 1,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "依品牌指定保留「您」「誠摯邀請」「蒞臨本館」等正式稱謂，刪掉「在這個全新的季節」與「標誌著藝術新高度」，展期、10:00–18:00、NT$450 完整，沒有新增展覽內容。"
+ },
+ {
+  "id": "N08",
+  "rep": 2,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "依品牌指定保留「您」「誠摯邀請」「蒞臨本館」等正式稱謂，刪掉「在這個全新的季節」與「標誌著藝術新高度」，展期、10:00–18:00、NT$450 完整，沒有新增展覽內容。"
+ },
+ {
+  "id": "N08",
+  "rep": 3,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "依品牌指定保留「您」「誠摯邀請」「蒞臨本館」等正式稱謂，刪掉「在這個全新的季節」與「標誌著藝術新高度」，展期、10:00–18:00、NT$450 完整，沒有新增展覽內容。"
+ },
+ {
+  "id": "N09",
+  "rep": 1,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "三項各有引文位置、原因與改法，抓到時代帽子（含扮演著角色）、廣告腔與「不僅……更是」三類，沒有交整篇改寫，漏掉虛假範圍但仍達三類門檻。"
+ },
+ {
+  "id": "N09",
+  "rep": 2,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "三項各有位置、原因與改法，涵蓋時代帽子與「扮演著……角色」繞圈、廣告腔、「不僅……更是」三類，未改寫全文，未新增事實。"
+ },
+ {
+  "id": "N09",
+  "rep": 3,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "剛好四項，四類（時代帽子、廣告腔、從……到……範圍與一站式、不僅……更是）全抓到，每項有位置、原因與改法，唯一的示範句只重組原有資訊，沒有交整篇改寫。"
+ },
+ {
+  "id": "N10",
+  "rep": 1,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "指令逐字放進可複製的程式碼區塊，「您」與首先其次最後、「新紀元」都拿掉，安裝後可使用的資訊保留，步驟照做得了。"
+ },
+ {
+  "id": "N10",
+  "rep": 2,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "指令原樣放進程式碼區塊，先後順序用「先……再」保留，「您」與新紀元處理掉，「寫作技能」的說法來自原文的寫作方式與 --skill 參數，不算新增。"
+ },
+ {
+  "id": "N10",
+  "rep": 3,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "fail",
+  "judge_reason": "要求只是修語氣，卻把最後一句整句刪掉，連「安裝完成後就能使用」這層資訊也一起消失；第一、二次都保留了這層意思，拿不準是否越界，請作者決定。"
+ },
+ {
+  "id": "N11",
+  "rep": 1,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "字數 271 在 255 到 360 之間，「假設一位接案剪輯師」讀得出是假設情境，四到六支、第二輪修改、逐條確認、還沒開始試與作者主張都在，結尾只重述沒有結果，沒有補成效或新痛點。"
+ },
+ {
+  "id": "N11",
+  "rep": 2,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "字數 266 在範圍內，假設情境與還沒開始試都清楚，「清單在他確認之前還不是要照著改的內容」是把作者主張套到流程上的說明，沒有新增事實、成果或承諾。"
+ },
+ {
+  "id": "N11",
+  "rep": 3,
+  "check": "pass",
+  "check_errors": [],
+  "judge": "pass",
+  "judge_reason": "字數 269 在範圍內，「我的看法」只用在作者主張，剪輯師的情境仍是第三人稱假設，四到六支、第二輪修改、逐條確認與沒有任何結果都保留。"
+ }
+]

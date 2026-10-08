@@ -1,5 +1,14 @@
 # 更新紀錄
 
+## 4.0.2（2026-10-09）
+
+- 驗證改成每題三次，新增 `evals/check.py`（自動檢查）、`evals/checks.json`（每題規格）、`evals/judge-prompt.md`（盲評提示）、`evals/aggregate.py`（切批次與彙整）。
+- `SKILL.md`：素材沒寫的效果、承諾與推論就算推得出來也不加，指定字數時落在 85% 到 120%，湊字數時不換算比例、不加通則、不替人物補動機。
+- `style-profile.md`：寫清楚 FB 結尾輕收句的意思，兩個版本各自結構完整。
+- `editing-examples.md`、`ai-patterns.md`、`context-modes.md`、README 中示範「推得出來就補」的例句改掉。
+- 回溯改判 4.0.0 第三輪 R06、第五輪 N07（自動檢查發現當時誤判）。
+- 結果見 `evals/x3-results.md`，N07 與 N11 在發布版上還不穩定。
+
 ## 4.0.1（2026-10-08）
 
 - 重寫 `ai-patterns.md`、`taiwan-zh.md` 與 `SKILL.md` 中跟 speak-human-tw 太接近的說明文字與識別詞，痕跡的欄位改成「常見長相、原句與改法、怎麼改、什麼時候留」。

@@ -1,5 +1,17 @@
 # 寫作驗證
 
+## 怎麼跑一次完整驗證
+
+1. `python3 evals/aggregate.py prepare evals/runs/日期-名稱 3 6`：切出每題三次、每次六組的執行批次，並記下技能檔案雜湊（`find hans-human-writing -type f | sort | xargs sha256sum > evals/runs/日期-名稱/skill-sha256.txt`）。
+2. 每個批次交給一個新的執行者，只給技能資料夾與批次檔，輸出寫成 `out-r{次}-{組}.json`。
+3. `python3 evals/check.py evals/runs/日期-名稱/out-r*.json`：自動檢查。
+4. `python3 evals/aggregate.py judge-input evals/runs/日期-名稱 6`，再依 [judge-prompt.md](judge-prompt.md) 把每份 `judge-in-*.json` 交給新的盲評代理，結果寫成 `judge-out-*.json`。
+5. `python3 evals/aggregate.py report evals/runs/日期-名稱`：產出 summary.md，三次都同時通過自動檢查與盲評才算通過。
+
+改了規則就至少重跑受影響的題目各三次，並在結果文件寫清楚哪些題目沒在最終雜湊上重跑。
+
+## 檔案
+
 目前題庫保存完整任務、原始輸出、技能檔案雜湊與核對結果。題目、輸出與驗收條件分開，執行者只取得技能與原始任務。
 
 - [v4 新增題庫](v4-prompts.json)：N01–N11，測時代帽子、台灣用語、立場真空、假人味、作者標點、短問答、FB 結構、品牌敬稱、只標問題、指令保留與假設情境。
