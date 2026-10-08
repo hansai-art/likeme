@@ -3,11 +3,12 @@
 用法：
     python3 evals/aggregate.py prepare 輸出目錄 次數 每次分組數 [題號,題號...]
         依題庫切出每次的執行批次 batch-r{次}-{組}.json，執行者讀這些檔案寫稿。
-        同時寫下 manifest.json（預期的題目與次數）與當時的 checks.json，之後重現結果都用這兩份。
+        同時寫下 manifest.json（預期的題目與次數）、當時的 checks.json，以及 criteria/ 裡的核對條件與盲評提示，之後重現結果都用這些快照。
     python3 evals/aggregate.py judge-input 輸出目錄 分組數
         合併 out-r*-*.json，依題目切成盲評檔 judge-in-{組}.json（同一題的多次輸出放在一起）。
     python3 evals/aggregate.py report 輸出目錄
         依 manifest.json 核對每一題每一次都有輸出與盲評，用資料夾裡的 checks.json 跑自動檢查，
+        並比對盲評當時看到的文字（judge-in-*.json）跟現在的輸出是否一致，不一致的盲評作廢，
         讀 judge-out-*.json，寫出 summary.md 與 results.json。
 
 一題算通過，要 manifest 裡預期的每一次輸出都在，而且都同時通過自動檢查與盲評。缺輸出或缺盲評都算失敗。
@@ -22,6 +23,7 @@ sys.path.insert(0, str(HERE))
 from check import check_case, load_specs, DEFAULT_SPEC  # noqa: E402
 
 PROMPT_FILES = ["prompts.json", "additional-prompts.json", "v4-prompts.json"]
+CRITERIA_FILES = ["v3-acceptance.md", "v4-acceptance.md", "judge-prompt.md"]
 
 
 def prompts():
@@ -34,8 +36,16 @@ def prompts():
 def prepare(out_dir, reps, groups, only=None):
     if out_dir.exists() and any(out_dir.iterdir()):
         sys.exit(f"{out_dir} 已經有檔案，為了不讓舊的輸出或盲評混進新的一批，請換一個新的資料夾名稱")
+    all_items = prompts()
+    if only:
+        unknown = sorted(set(only) - {p["id"] for p in all_items})
+        if unknown:
+            sys.exit(f"題庫裡沒有這些題號：{unknown}")
     out_dir.mkdir(parents=True)
-    items = [p for p in prompts() if not only or p["id"] in only]
+    items = [p for p in all_items if not only or p["id"] in only]
+    (out_dir / "criteria").mkdir()
+    for name in CRITERIA_FILES:
+        (out_dir / "criteria" / name).write_text((HERE / name).read_text(encoding="utf-8"), encoding="utf-8")
     manifest = {"reps": reps, "ids": [p["id"] for p in items]}
     (out_dir / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=1), encoding="utf-8")
     (out_dir / "checks.json").write_text(DEFAULT_SPEC.read_text(encoding="utf-8"), encoding="utf-8")
@@ -102,6 +112,11 @@ def report(out_dir):
     specs = load_specs(spec_path)
     expected_reps = list(range(1, manifest["reps"] + 1))
     runs = load_outputs(out_dir)
+    judged_text = {}
+    for path in out_dir.glob("judge-in-*.json"):
+        for entry in json.loads(path.read_text(encoding="utf-8")):
+            for run in entry["runs"]:
+                judged_text[(entry["id"], int(run["rep"]))] = (run["output"], run.get("followup_output"))
     judged = {}
     for path in out_dir.glob("judge-out-*.json"):
         for v in json.loads(path.read_text(encoding="utf-8")):
@@ -113,6 +128,11 @@ def report(out_dir):
             case = runs.get(cid, {}).get(rep)
             errors = check_case(case, specs) if case else ["缺少這一次的輸出"]
             j = judged.get((cid, rep))
+            if j is not None and case is not None:
+                seen = judged_text.get((cid, rep))
+                now = (case["output"], case.get("followup_output"))
+                if seen != now:
+                    j = {"verdict": "stale", "reason": "盲評看到的文字跟現在的輸出不一致，這次盲評作廢" if seen else "找不到盲評當時看到的文字（judge-in），無法確認判的是哪一份輸出"}
             j_pass = j is not None and j["verdict"] == "pass"
             check_ok += not errors
             judge_ok += j_pass

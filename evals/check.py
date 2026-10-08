@@ -164,9 +164,10 @@ def normalize(case):
     """舊紀錄把多輪對話存在 turns 裡，轉成 output 與 followup_output。"""
     turns = case.get("turns")
     if turns:
+        # 舊紀錄頂層的 output 存的是最後一輪，所以一律以 turns 為準
         case = dict(case)
-        case.setdefault("output", turns[0]["output"])
-        if len(turns) > 1 and not case.get("followup_output"):
+        case["output"] = turns[0]["output"]
+        if len(turns) > 1:
             case["followup_output"] = turns[1]["output"]
     return case
 
