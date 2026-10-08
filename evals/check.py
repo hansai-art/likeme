@@ -6,8 +6,11 @@
 
 每次試跑的資料夾裡會存一份當時的 checks.json，重現舊結果時用 --spec 指定它。
 
-輸出檔格式：[{"id": "R01", "output": "...", "followup_output": "..."}]
-也可以直接吃 runs/*.json 裡某一輪的 cases 陣列。
+可以讀的格式：
+- 輸出陣列：[{"id": "R01", "output": "...", "followup_output": "..."}]（out-r*.json、outputs.json）
+- 單輪紀錄：{"cases": [...]}（runs/2026-10-08-final.json 這類）
+- 多輪紀錄：{"rounds": [{"round": 1, "cases": [...]}, ...]}（runs/2026-10-08-v4.json），每筆會標上輪次
+- 以題號為鍵的物件：{"R01": {"id": "R01", "output": "..."}}
 
 這支腳本只檢查程式判斷得了的條件：標點、敬稱、對岸用詞、必留資料、
 原文不動、正文外說明、段落數、項目數與長度。內容有沒有補事實、語氣像不像作者，
@@ -157,10 +160,18 @@ def check_case(case, specs=None):
 
 
 def load(path):
+    """回傳 (標籤, case) 清單，標籤用來在多輪紀錄裡分辨輪次。"""
     data = json.loads(Path(path).read_text(encoding="utf-8"))
-    if isinstance(data, dict):
-        data = list(data.values())
-    return data
+    if isinstance(data, list):
+        return [(c["id"], c) for c in data]
+    if isinstance(data, dict) and "rounds" in data:
+        return [(f"第{r.get('round', i + 1)}輪 {c['id']}", c)
+                for i, r in enumerate(data["rounds"]) for c in r["cases"]]
+    if isinstance(data, dict) and "cases" in data:
+        return [(c["id"], c) for c in data["cases"]]
+    if isinstance(data, dict) and data and all(isinstance(v, dict) and "output" in v for v in data.values()):
+        return [(v.get("id", k), {**v, "id": v.get("id", k)}) for k, v in data.items()]
+    raise SystemExit(f"{path}：看不懂的格式，請給輸出陣列、cases 或 rounds 紀錄")
 
 
 def main(args):
@@ -170,11 +181,11 @@ def main(args):
     specs = load_specs(spec_path)
     failed = 0
     for path in args:
-        for case in load(path):
+        for label, case in load(path):
             errors = check_case(case, specs)
             status = "FAIL" if errors else "pass"
             failed += bool(errors)
-            print(f"{status}\t{case['id']}\t{' | '.join(errors) if errors else ''}".rstrip())
+            print(f"{status}\t{label}\t{' | '.join(errors) if errors else ''}".rstrip())
     return 1 if failed else 0
 
 

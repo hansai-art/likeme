@@ -20,7 +20,7 @@
 - [v4 核對條件](v4-acceptance.md) 與 [v4 結果](v4-results.md)，原始紀錄在 [runs/2026-10-08-v4.json](runs/2026-10-08-v4.json)。
 - [主要題庫](prompts.json)：23 題，涵蓋改稿、新寫、保留原文、品牌語氣、來源歸屬、長文與多輪修改。
 - [第三輪原始紀錄](runs/2026-10-08-final.json)：23 題及 M01 兩輪輸出，執行時技能標記為 3.0.0 候選版，寫作核心與交付版本一致，試跑後的字詞校正與顯示設定另記錄在 package.json。
-- [目前輸出](outputs.json)：v4 最新一輪的 37 筆成稿。
+- [outputs.json](outputs.json)：4.0.1 第八輪每題一次的 37 筆成稿，用現在較嚴的 checks.json 檢查會有 4 題不過。4.0.2 起的輸出在 runs/2026-10-08-x3-* 各批次資料夾。
 - [補充題庫](additional-prompts.json) 與 [三筆新任務](runs/2026-10-08-additional.json)：作者批評、操作通知與保留三段文章。
 - [核對條件](v3-acceptance.md)：依題目檢查內容、作者聲音與改稿範圍。
 - [結果與修正](v3-results.md)：各輪範圍、實際失敗與修正紀錄。
