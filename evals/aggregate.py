@@ -34,6 +34,8 @@ def prompts():
 
 
 def prepare(out_dir, reps, groups, only=None):
+    if reps < 1 or groups < 1:
+        sys.exit("次數與分組數都至少要是 1")
     if out_dir.exists() and any(out_dir.iterdir()):
         sys.exit(f"{out_dir} 已經有檔案，為了不讓舊的輸出或盲評混進新的一批，請換一個新的資料夾名稱")
     all_items = prompts()
@@ -106,6 +108,8 @@ def report(out_dir):
     if not manifest_path.exists():
         sys.exit(f"{out_dir} 沒有 manifest.json，無法確認預期的題目與次數")
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    if int(manifest.get("reps", 0)) < 1 or not manifest.get("ids"):
+        sys.exit(f"{manifest_path} 的次數小於 1 或沒有題目，這批沒有可以判定的結果")
     spec_path = out_dir / "checks.json"
     if not spec_path.exists():
         sys.exit(f"{out_dir} 沒有當時的 checks.json，無法重現自動檢查")
