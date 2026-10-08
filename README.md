@@ -28,17 +28,17 @@
 
 **改寫前**
 
-> 隨著生成式 AI 快速發展，影像產業正面臨前所未有的挑戰與機遇。這次想分享我們怎麼把 AI 放進動畫流程。
+> 生成式 AI 改變了整個影像產業，每家工作室都在思考如何因應。這次想分享我們怎麼把 AI 放進動畫流程。
 
 **改寫後**
 
 > 這次的 30 秒片頭，分鏡和風格測試都先丟給 AI 跑，正式動畫還是我們自己做。
 
-### 立場真空改成作者的選擇
+### 不肯選邊，改成作者的選擇
 
 **改寫前**
 
-> 用 AI 做分鏡和手繪分鏡各有優缺點，選擇哪一種取決於專案需求與個人習慣。
+> 用 AI 做分鏡和手繪分鏡都有道理，最後還是看專案和個人習慣。
 
 **改寫後**（作者給了自己的做法）
 
@@ -114,23 +114,30 @@ hans-human-writing/
 
 `evals/` 保存題目、每次試跑的原始輸出、技能檔案雜湊與核對結果，題目與驗收條件分開，執行者拿不到預期答案。目前結果見 [evals/results.md](evals/results.md)。
 
-## 參考資源
+## 參考資源與致謝
 
-- [中文維基百科：AI 生成文的特徵](https://zh.wikipedia.org/zh-tw/Wikipedia:AI%E7%94%9F%E6%88%90%E6%96%87%E7%9A%84%E7%89%B9%E5%BE%B5)：主要知識來源，收錄真實的繁中案例。
-- [朱宥勳〈對「AI 腔」厭煩了嗎？分析 AI 生成文字的經典句型〉](https://www.youtube.com/watch?v=9uuX6cb81C8)：否定平行結構的觀點來源。他指出句型本身是正規的寫作動作（定義加區分），問題出在濫用造成的審美疲勞，以及讀者容易把形式正確誤判成內容正確。
-- [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing)：英文版原始指南。
-- [SEO 研究院〈什麼是 AI 味？〉](https://blog.dns.com.tw/2026/05/ai-writing.html)：「AI 起草、人工注魂」的分工框架，以及公式化開場這個痕跡。
-- [Raymondhou0917/speak-human-tw](https://github.com/Raymondhou0917/speak-human-tw)：繁體中文去 AI 味的直接參考。痕跡目錄附誤傷邊界的形式、假人味的提醒、台灣在地化層都受它啟發，本專案在這個基礎上加入作者聲音設定、改動範圍模式與林思翰自己的寫法與改稿經驗。
-- [MrGeDiao/shuorenhua](https://github.com/MrGeDiao/shuorenhua)：簡體中文去 AI 味的先行者，保護片段、情境分級與評測方法給了很好的參考。
-- [blader/humanizer](https://github.com/blader/humanizer)、[hardikpandya/stop-slop](https://github.com/hardikpandya/stop-slop)：英文先行專案。
+### 直接參考的專案
 
-各來源採用與不採用的地方，以及固定的參考版本，見 [研究摘要](hans-human-writing/references/research-synthesis.md)。
+[Raymondhou0917/speak-human-tw](https://github.com/Raymondhou0917/speak-human-tw)（雷蒙三十，MIT 授權）是本專案最主要的參考。v4 的痕跡目錄採用了它的整理方式，每條痕跡附上什麼情況該留，也沿用了它整理出的幾個痕跡類別與概念，例如時代帽子、假坦白、反應鏡頭、立場真空、去 AI 味時誤加的假人味，以及台灣用語要跟去 AI 腔一起處理的做法。
 
-所有範例句、詞表、作者偏好與情境寫法都針對繁體中文場景原創撰寫，不翻譯、不移植上述任何專案的內容。範例中的人物、數字與案子是示範用的虛構內容。
+本專案自己做的部分：範例句全部換成動畫、提案、課程與工作坊的場景重寫，痕跡的分組與說明文字重新撰寫，另外新增作者聲音設定檔、六種改動範圍模式、預設直接交成稿的流程，以及 37 題評測與試跑紀錄。
+
+### 其他參考
+
+- [中文維基百科：AI 生成文的特徵](https://zh.wikipedia.org/zh-tw/Wikipedia:AI%E7%94%9F%E6%88%90%E6%96%87%E7%9A%84%E7%89%B9%E5%BE%B5)：社群整理的 AI 文字特徵與繁中實例，是判斷方向的主要依據。
+- [朱宥勳〈對「AI 腔」厭煩了嗎？〉](https://www.youtube.com/watch?v=9uuX6cb81C8)：「不是 A，是 B」這類句型本來是好用的區分工具，讓人疲乏的是到處都在用，這也是痕跡目錄第 18 條只限次數、不禁止的原因。
+- [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing)：英文社群的原始整理。
+- [SEO 研究院〈什麼是 AI 味？〉](https://blog.dns.com.tw/2026/05/ai-writing.html)：AI 負責起草、人負責觀點與細節的分工想法。
+- [MrGeDiao/shuorenhua](https://github.com/MrGeDiao/shuorenhua)：簡體中文的同類專案，改動範圍與保真的做法有參考它。
+- [blader/humanizer](https://github.com/blader/humanizer)、[hardikpandya/stop-slop](https://github.com/hardikpandya/stop-slop)：英文的同類專案。
+
+每個來源採用了什麼、沒採用什麼，以及參考時的固定版本，見 [研究摘要](hans-human-writing/references/research-synthesis.md)。
+
+範例中的人物、數字與案子都是示範用的虛構內容。
 
 ## 授權
 
-MIT
+MIT，見 [LICENSE](LICENSE)。部分內容改寫自 speak-human-tw，原作者的版權與授權聲明見 [NOTICE.md](NOTICE.md)。
 
 ---
 
@@ -145,3 +152,5 @@ MIT
 - Strict fidelity checks on numbers, dates, conditions, URLs, quotes, and source attribution, and no invented anecdotes.
 
 Install: `npx skills add hansai-art/likeme --skill hans-human-writing`
+
+The pattern catalog format and several pattern categories are adapted from [speak-human-tw](https://github.com/Raymondhou0917/speak-human-tw) by Raymond Hou (MIT). See [NOTICE.md](NOTICE.md).
