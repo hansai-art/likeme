@@ -4,6 +4,7 @@
 
 - 重寫 `ai-patterns.md`、`taiwan-zh.md` 與 `SKILL.md` 中跟 speak-human-tw 太接近的說明文字與識別詞，痕跡的欄位改成「常見長相、原句與改法、怎麼改、什麼時候留」。
 - 新增 `NOTICE.md`（根目錄與技能資料夾各一份），保留 speak-human-tw 的 MIT 版權與授權聲明。
+- `style-profile.md`：給兩個 FB 版本時只用「版本一」「版本二」標開，不加說明句。`taiwan-zh.md`：「復盤」恢復「回顧」作為中性選項。
 - README 的參考資源改成用自己的話寫，並清楚寫出哪些沿用 speak-human-tw、哪些是本專案新增，移除不準確的原創聲明。
 
 ## 4.0.0（2026-10-08）
