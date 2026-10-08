@@ -1,7 +1,7 @@
 {
   "skill_revision": "4.0.0",
   "files_sha256": {
-    "SKILL.md": "ee70dcaf789f2453c97a73929ddf8d45b87f64c037d4f3f8b5ed3c5777c2125f",
+    "SKILL.md": "8eb74954475873170b2ab0ecef0fccaf1935f7a4fe4f5d8d5873e19cbe5f4174",
     "agents/openai.yaml": "a441db135afdc1067b5f62f7d7faef62d79ffdf8af0956add20e43aa112a18d1",
     "assets/icon.svg": "49315dda7125ec5fc77ef5f2b96126d8b2121c6e72944b4702972e90f321d3ee",
     "references/ai-patterns.md": "4e5416c44ab88b10258594fa68783929a2f46ebb904eb4211d6a4d889a542b8b",
@@ -13,6 +13,6 @@
     "references/taiwan-zh.md": "6d569e423c5bf14d3f0e1694e63c82aff8564e77f85379a147471f7311c7a0cd",
     "references/youtube-case.md": "ae90ce07b17a10bc6cf15679b149483c1476d02cb1d6389f96d1d01e5e029c97"
   },
-  "behavior_test_core_sha256": "ee70dcaf789f2453c97a73929ddf8d45b87f64c037d4f3f8b5ed3c5777c2125f",
+  "behavior_test_core_sha256": "8eb74954475873170b2ab0ecef0fccaf1935f7a4fe4f5d8d5873e19cbe5f4174",
   "post_test_changes": []
 }
