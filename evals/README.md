@@ -1,12 +1,26 @@
 # 寫作驗證
 
+## 怎麼跑一次完整驗證
+
+1. `python3 evals/aggregate.py prepare evals/runs/日期-名稱 3 6`：寫下 manifest.json（預期的題目與次數）、當下的 checks.json 副本與 criteria/ 裡的核對條件和盲評提示，題號打錯會直接報錯，切出每題三次、每次六組的執行批次，並記下技能檔案雜湊（`find hans-human-writing -type f | sort | xargs sha256sum > evals/runs/日期-名稱/skill-sha256.txt`）。
+2. 每個批次交給一個新的執行者，只給技能資料夾與批次檔，輸出寫成 `out-r{次}-{組}.json`。
+3. `python3 evals/check.py evals/runs/日期-名稱/out-r*.json`：自動檢查。
+4. `python3 evals/aggregate.py judge-input evals/runs/日期-名稱 6`，題目讀這批的 batch 檔。再依批次資料夾 `criteria/judge-prompt.md` 把每份 `judge-in-*.json` 交給新的盲評代理，結果寫成 `judge-out-*.json`。
+5. `python3 evals/aggregate.py report evals/runs/日期-名稱`：依 manifest 核對每一題每一次都有輸出與盲評，用資料夾裡的 checks.json 跑自動檢查，盲評當時看到的文字跟現在輸出不一致就作廢，產出 summary.md。三次都同時通過才算通過，缺輸出或缺盲評算失敗。
+
+之後改了 `evals/checks.json` 不會影響舊批次的結果。要用新規格重評舊輸出，用 `python3 evals/check.py --spec evals/checks.json 舊批次/out-r*.json`。
+
+改了規則就至少重跑受影響的題目各三次，並在結果文件寫清楚哪些題目沒在最終雜湊上重跑。
+
+## 檔案
+
 目前題庫保存完整任務、原始輸出、技能檔案雜湊與核對結果。題目、輸出與驗收條件分開，執行者只取得技能與原始任務。
 
 - [v4 新增題庫](v4-prompts.json)：N01–N11，測時代帽子、台灣用語、立場真空、假人味、作者標點、短問答、FB 結構、品牌敬稱、只標問題、指令保留與假設情境。
 - [v4 核對條件](v4-acceptance.md) 與 [v4 結果](v4-results.md)，原始紀錄在 [runs/2026-10-08-v4.json](runs/2026-10-08-v4.json)。
 - [主要題庫](prompts.json)：23 題，涵蓋改稿、新寫、保留原文、品牌語氣、來源歸屬、長文與多輪修改。
 - [第三輪原始紀錄](runs/2026-10-08-final.json)：23 題及 M01 兩輪輸出，執行時技能標記為 3.0.0 候選版，寫作核心與交付版本一致，試跑後的字詞校正與顯示設定另記錄在 package.json。
-- [目前輸出](outputs.json)：v4 最新一輪的 37 筆成稿。
+- [outputs.json](outputs.json)：4.0.1 第八輪每題一次的 37 筆成稿，用現在較嚴的 checks.json 檢查會有 4 題不過。4.0.2 起的輸出在 runs/2026-10-08-x3-* 各批次資料夾。
 - [補充題庫](additional-prompts.json) 與 [三筆新任務](runs/2026-10-08-additional.json)：作者批評、操作通知與保留三段文章。
 - [核對條件](v3-acceptance.md)：依題目檢查內容、作者聲音與改稿範圍。
 - [結果與修正](v3-results.md)：各輪範圍、實際失敗與修正紀錄。

@@ -1,0 +1,189 @@
+"""彙整多次試跑：自動檢查、盲評與通過率。
+
+用法：
+    python3 evals/aggregate.py prepare 輸出目錄 次數 每次分組數 [題號,題號...]
+        依題庫切出每次的執行批次 batch-r{次}-{組}.json，執行者讀這些檔案寫稿。
+        同時寫下 manifest.json（預期的題目與次數）、當時的 checks.json，以及 criteria/ 裡的核對條件與盲評提示，之後重現結果都用這些快照。
+    python3 evals/aggregate.py judge-input 輸出目錄 分組數
+        合併 out-r*-*.json，依題目切成盲評檔 judge-in-{組}.json（同一題的多次輸出放在一起）。
+    python3 evals/aggregate.py report 輸出目錄
+        依 manifest.json 核對每一題每一次都有輸出與盲評，用資料夾裡的 checks.json 跑自動檢查，
+        並比對盲評當時看到的文字（judge-in-*.json）跟現在的輸出是否一致，不一致的盲評作廢，
+        讀 judge-out-*.json，寫出 summary.md 與 results.json。
+
+一題算通過，要 manifest 裡預期的每一次輸出都在，而且都同時通過自動檢查與盲評。缺輸出或缺盲評都算失敗。
+"""
+import json
+import sys
+from collections import defaultdict
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+from check import check_case, load_specs, DEFAULT_SPEC  # noqa: E402
+
+PROMPT_FILES = ["prompts.json", "additional-prompts.json", "v4-prompts.json"]
+CRITERIA_FILES = ["v3-acceptance.md", "v4-acceptance.md", "judge-prompt.md"]
+
+
+def prompts():
+    items = []
+    for name in PROMPT_FILES:
+        items += json.loads((HERE / name).read_text(encoding="utf-8"))
+    return items
+
+
+def prepare(out_dir, reps, groups, only=None):
+    if reps < 1 or groups < 1:
+        sys.exit("次數與分組數都至少要是 1")
+    if out_dir.exists() and any(out_dir.iterdir()):
+        sys.exit(f"{out_dir} 已經有檔案，為了不讓舊的輸出或盲評混進新的一批，請換一個新的資料夾名稱")
+    all_items = prompts()
+    if only:
+        unknown = sorted(set(only) - {p["id"] for p in all_items})
+        if unknown:
+            sys.exit(f"題庫裡沒有這些題號：{unknown}")
+    out_dir.mkdir(parents=True)
+    items = [p for p in all_items if not only or p["id"] in only]
+    (out_dir / "criteria").mkdir()
+    for name in CRITERIA_FILES:
+        (out_dir / "criteria" / name).write_text((HERE / name).read_text(encoding="utf-8"), encoding="utf-8")
+    manifest = {"reps": reps, "ids": [p["id"] for p in items]}
+    (out_dir / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=1), encoding="utf-8")
+    (out_dir / "checks.json").write_text(DEFAULT_SPEC.read_text(encoding="utf-8"), encoding="utf-8")
+    for r in range(1, reps + 1):
+        for g in range(groups):
+            batch = items[g::groups]
+            path = out_dir / f"batch-r{r}-{g + 1}.json"
+            path.write_text(json.dumps(batch, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(f"{len(items)} 題 × {reps} 次，每次 {groups} 組，批次寫在 {out_dir}")
+
+
+def load_outputs(out_dir):
+    runs = defaultdict(dict)
+    for path in sorted(out_dir.glob("out-r*-*.json")):
+        rep = int(path.stem.split("-")[1][1:])
+        for case in json.loads(path.read_text(encoding="utf-8")):
+            runs[case["id"]][rep] = case
+    return runs
+
+
+def batch_requests(out_dir):
+    """從這批的 batch-r*.json 讀回當時交給執行者的題目，不讀 repo 裡現在的題庫。"""
+    by_id = {}
+    for path in sorted(out_dir.glob("batch-r*-*.json")):
+        for p in json.loads(path.read_text(encoding="utf-8")):
+            by_id.setdefault(p["id"], p)
+    return by_id
+
+
+def judge_input(out_dir, groups):
+    runs = load_outputs(out_dir)
+    by_id = batch_requests(out_dir)
+    manifest_path = out_dir / "manifest.json"
+    order = json.loads(manifest_path.read_text(encoding="utf-8"))["ids"] if manifest_path.exists() else list(by_id)
+    missing = [cid for cid in order if cid not in by_id]
+    if missing:
+        sys.exit(f"這批的 batch 檔裡找不到題目：{missing}")
+    ids = [cid for cid in order if cid in runs]
+    for g in range(groups):
+        chunk = []
+        for cid in ids[g::groups]:
+            entry = {"id": cid, "request": by_id[cid]["request"], "runs": []}
+            if "followup" in by_id[cid]:
+                entry["followup"] = by_id[cid]["followup"]
+            for rep, case in sorted(runs[cid].items()):
+                run = {"rep": rep, "output": case["output"]}
+                if case.get("followup_output"):
+                    run["followup_output"] = case["followup_output"]
+                entry["runs"].append(run)
+            chunk.append(entry)
+        path = out_dir / f"judge-in-{g + 1}.json"
+        path.write_text(json.dumps(chunk, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(f"{len(ids)} 題切成 {groups} 份盲評檔")
+
+
+def report(out_dir):
+    manifest_path = out_dir / "manifest.json"
+    if not manifest_path.exists():
+        sys.exit(f"{out_dir} 沒有 manifest.json，無法確認預期的題目與次數")
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    if int(manifest.get("reps", 0)) < 1 or not manifest.get("ids"):
+        sys.exit(f"{manifest_path} 的次數小於 1 或沒有題目，這批沒有可以判定的結果")
+    spec_path = out_dir / "checks.json"
+    if not spec_path.exists():
+        sys.exit(f"{out_dir} 沒有當時的 checks.json，無法重現自動檢查")
+    specs = load_specs(spec_path)
+    expected_reps = list(range(1, manifest["reps"] + 1))
+    runs = load_outputs(out_dir)
+    judged_text = {}
+    for path in out_dir.glob("judge-in-*.json"):
+        for entry in json.loads(path.read_text(encoding="utf-8")):
+            for run in entry["runs"]:
+                judged_text[(entry["id"], int(run["rep"]))] = (run["output"], run.get("followup_output"))
+    judged = {}
+    for path in out_dir.glob("judge-out-*.json"):
+        for v in json.loads(path.read_text(encoding="utf-8")):
+            judged[(v["id"], int(v["rep"]))] = v
+    rows, disagreements, results = [], [], []
+    for cid in manifest["ids"]:
+        check_ok = judge_ok = 0
+        for rep in expected_reps:
+            case = runs.get(cid, {}).get(rep)
+            errors = check_case(case, specs) if case else ["缺少這一次的輸出"]
+            j = judged.get((cid, rep))
+            if j is not None and case is not None:
+                seen = judged_text.get((cid, rep))
+                now = (case["output"], case.get("followup_output"))
+                if seen != now:
+                    j = {"verdict": "stale", "reason": "盲評看到的文字跟現在的輸出不一致，這次盲評作廢" if seen else "找不到盲評當時看到的文字（judge-in），無法確認判的是哪一份輸出"}
+            j_pass = j is not None and j["verdict"] == "pass"
+            check_ok += not errors
+            judge_ok += j_pass
+            if (not errors) != j_pass:
+                disagreements.append((cid, rep, "；".join(errors) or "通過", j["reason"] if j else "沒有盲評結果"))
+            results.append({"id": cid, "rep": rep, "check": "pass" if not errors else "fail",
+                            "check_errors": errors, "judge": j["verdict"] if j else "missing",
+                            "judge_reason": j["reason"] if j else ""})
+        n = len(expected_reps)
+        final = "pass" if check_ok == n and judge_ok == n else "fail"
+        rows.append((cid, f"{check_ok}/{n}", f"{judge_ok}/{n}", final))
+
+    passed = sum(r[3] == "pass" for r in rows)
+    lines = ["# 試跑彙整", "",
+             f"每題 {manifest['reps']} 次，每一次都要同時通過自動檢查與盲評才算通過，缺輸出或缺盲評算失敗。",
+             "", f"通過 {passed} / {len(rows)} 題。", "",
+             "| 題目 | 自動檢查 | 盲評 | 結果 |", "| --- | --- | --- | --- |"]
+    lines += [f"| {cid} | {c} | {j} | {f} |" for cid, c, j, f in rows]
+    lines += ["", "## 自動檢查與盲評不一致", ""]
+    if disagreements:
+        lines += ["| 題目 | 次 | 自動檢查 | 盲評理由 |", "| --- | --- | --- | --- |"]
+        lines += [f"| {cid} | {rep} | {c} | {j} |" for cid, rep, c, j in disagreements]
+    else:
+        lines.append("沒有。")
+    fails = [r for r in results if r["check"] == "fail" or r["judge"] != "pass"]
+    lines += ["", "## 未通過的輸出", ""]
+    if fails:
+        for r in fails:
+            why = "；".join(r["check_errors"]) or r["judge_reason"]
+            lines.append(f"- {r['id']} 第 {r['rep']} 次：自動檢查 {r['check']}，盲評 {r['judge']}。{why}")
+    else:
+        lines.append("沒有。")
+    (out_dir / "summary.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    (out_dir / "results.json").write_text(json.dumps(results, ensure_ascii=False, indent=1), encoding="utf-8")
+    print("\n".join(lines))
+
+
+if __name__ == "__main__":
+    if len(sys.argv) < 3:
+        sys.exit(__doc__)
+    cmd, target = sys.argv[1], Path(sys.argv[2])
+    if cmd == "prepare":
+        only = set(sys.argv[5].split(",")) if len(sys.argv) > 5 else None
+        prepare(target, int(sys.argv[3]), int(sys.argv[4]), only)
+    elif cmd == "judge-input":
+        judge_input(target, int(sys.argv[3]))
+    elif cmd == "report":
+        report(target)
+    else:
+        sys.exit(__doc__)
